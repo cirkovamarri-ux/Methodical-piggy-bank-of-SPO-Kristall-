@@ -103,367 +103,740 @@
         margin: 40px auto;
         padding: 0 20px;
     }
-    
-    .section-title {
-        font-family: 'Cliche';
-        font-size: 32px;
-        margin-bottom: 30px;
-        text-align: center;
-        color: #2c3e50;
-        position: relative;
-        padding-bottom: 15px;
-    }
-    
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background-color: #3498db;
-    }
 
     /* Сетка для игр */
-    .games-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.game-category {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 8px 25px rgba(52, 152, 219, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid #e1f0ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #2980b9, #3498db);
     
-    .game-category {
-        background-color: white;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .game-category:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .game-category h3 {
-        font-family: 'Bahnschrift';
-        font-family: 'Cliche';
-        color: #2c3e50;
-        margin-bottom: 15px;
-        font-size: 20px;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 8px;
-        text-align: center;
-    }
-    
-    .game-item {
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px dashed #e0e0e0;
-    }
-    
-    .game-item:last-child {
-        border-bottom: none;
-    }
-    
-    .game-title {
-        font-family: 'Bajkal';
-        color: #3498db;
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
-    
-    .game-description {
-         font-family: 'Bahnschrift';
-        color: #333;
-        font-size: 15px;
-    }
+}
 
-    #events {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-    }
+.game-category h3 {
+    font-family: 'Cliche';
+    color: #2c5282;
+    margin-bottom: 25px;
+    font-size: 24px;
+    padding-bottom: 15px;
+    text-align: center;
+    position: relative;
+    font-weight: 700;
+}
 
-    .event-types {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 40px;
-    }
+.game-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #3498db, transparent);
+    border-radius: 2px;
+}
 
-    .event-type-btn {
-        font-family: 'Bajkal';
-        padding: 12px 24px;
-        background-color: #3498db;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
+.game-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
 
-    .event-type-btn:hover {
-        background-color: #2980b9;
-    }
+.game-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(180deg, #3498db, #2980b9);
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
-    .event-collection {
-        margin-bottom: 50px;
-    }
+.game-title {
+    font-family: 'Bajkal';
+    color: #2c5282;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-    .event-collection h3 {
-     font-family: 'Bajkal';
-        color: #34495e;
-        border-bottom: 2px solid #bdc3c7;
-        padding-bottom: 10px;
-        margin-bottom: 30px;
-    }
+.game-title::before {
+    content: '🎯';
+    font-size: 16px;
+    filter: grayscale(0.3);
+}
 
-    .event-card {
-        background: white;
-        border-radius: 12px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        border: 1px solid #e1e8ed;
-    }
+.game-description {
+    font-family: 'Bahnschrift';
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
 
-    .event-card h4 {
-        font-family: 'Bajkal';
-        color: #304962;
-        margin-bottom: 20px;
-        font-size: 2.0em;
-    }
+/* Убираем точки в списках */
+.games-grid ul,
+.games-grid li,
+.game-category ul,
+.game-category li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
 
-    .event-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 25px;
-        padding: 15px;
-        background-color: #dfefff;
-        border-radius: 8px;
-    }
+.game-category ul {
+    margin: 0;
+}
 
-    .meta-item {         
-        font-family: 'Bahnschrift';
-        color: #434343;
-        font-weight: 500;
-    }
+.game-category li {
+    margin-bottom: 15px;
+}
 
-    .event-card p {
-         font-family: 'Bahnschrift';
-        margin-bottom: 20px;
-        text-align: justify;
-    }
+.game-category li:last-child {
+    margin-bottom: 0;
+}
 
-    .event-section {
-        margin-bottom: 30px;
-    }
 
-    .event-section h5 {
-       font-weight: 100;
-        font-family: 'Bajkal';
-        color: #34495e;
-        margin-bottom: 15px;
-        font-size: 1.5em;
-    }
+/* Для всех списков в мероприятиях */
+.event-section ul,
+.event-card ul,
+.event-collection ul {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
 
-    .event-section h6 {
-         font-family: 'Bahnschrift';
-        color: #2c3e50;
-        margin: 15px 0 10px 0;
-        font-size: 1.1em;
-    }
+.event-list li,
+.event-section li,
+.event-card li,
+.event-collection li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
 
-    .event-list {
-         font-family: 'Bahnschrift';
-        margin-left: 20px;
-        margin-bottom: 15px;
-    }
+/* Сохраняем отступы для структуры */
+.event-list {
+    margin-left: 0;
+    margin-bottom: 15px;
+}
 
-    .event-list li {
-        font-family: 'Bahnschrift';
-        margin-bottom: 8px;
-        text-align: justify;
-    }
+.event-list li {
+    margin-bottom: 8px;
+    text-align: justify;
+    padding-left: 0;
+}
 
-    .quote {
-        background-color: #ecf0f1;
-        padding: 15px;
-        border-left: 4px solid #3498db;
-        margin: 15px 0;
-        font-style: italic;
-        border-radius: 0 8px 8px 0;
-    }
+ #events {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
 
-    .character-card, .clue-card {
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        margin: 10px 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
+.event-types {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
 
-    .character-name {
-         font-family: 'Bahnschrift';
-        font-weight: bold;
-        color: #2c3e50;
-        margin-bottom: 5px;
-    }
+.event-type-btn {
+    font-family: 'Bajkal';
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
 
-    .character-phrase {
-        color: #7f8c8d;
-        font-style: italic;
-    }
+.event-type-btn:hover {
+    background-color: #2980b9;
+}
 
-    .clue-title {
-        font-weight: bold;
-        color: #2c3e50;
-        margin-bottom: 5px;
-    }
+.event-collection {
+    margin-bottom: 50px;
+}
 
-    .clue-content {
-        color: #34495e;
-    }
+.event-collection h3 {
+    font-family: 'Bajkal';
+    color: #34495e;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
 
-    .checklist {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 20px;
-    }
+.event-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid #e1e8ed;
+}
 
-    .checklist h5 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-    }
+.event-card h4 {
+    font-family: 'Bajkal';
+    color: #304962;
+    margin-bottom: 20px;
+    font-size: 2.0em;
+}
 
-    .checklist-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-    }
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #e8f4ff;
+    border-radius: 8px;
+}
 
-    .checklist-item input[type="checkbox"] {
-        margin-right: 10px;
-        transform: scale(1.2);
-    }
+.meta-item {
+    font-family: 'Bahnschrift';
+    color: #434343;
+    font-weight: 500;
+}
 
-    /* Стили для сценария мероприятия с подготовкой */
-    .event-phase {
-        margin-bottom: 25px;
-    }
+.event-card p {
+    font-family: 'Bahnschrift';
+    margin-bottom: 20px;
+    text-align: justify;
+}
 
-    .stage-direction {
-         font-family: 'Bahnschrift';
-        color: #7f8c8d !important;
-        font-style: italic !important;
-        margin: 10px 0;
-        text-align: justify;
-    }
+.event-section {
+    margin-bottom: 30px;
+}
 
-    .dialogue-card {
-        margin: 15px 0;
-        text-align: justify;
-    }
+.event-section h5 {
+    font-weight: 100;
+    font-family: 'Bajkal';
+    color: #34495e;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
 
-    .speaker {
-         font-family: 'Bahnschrift';
-        color: #3498db !important;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+.event-section h6 {
+    font-family: 'Bahnschrift';
+    color: #2c3e50;
+    margin: 15px 0 10px 0;
+    font-size: 1.1em;
+}
 
-    .dialogue-card > div:not(.speaker) {
-         font-family: 'Bahnschrift';
-        color: #2c3e50 !important;
-    }
+.event-list {
+    font-family: 'Bahnschrift';
+    margin-left: 0;
+    margin-bottom: 15px;
+}
 
-    .song-card {
-        margin: 15px 0;
-        text-align: justify;
-    }
+.event-list li {
+    font-family: 'Bahnschrift';
+    margin-bottom: 8px;
+    text-align: justify;
+    list-style: none;
+    padding-left: 0;
+}
 
-    .song-part {
-        margin-bottom: 5px;
-    }
+.quote {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-left: 4px solid #3498db;
+    margin: 15px 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
 
-    /* Выравнивание номеров по центру */
-    .event-phase h6 {
-        color: #2c3e50;
-        margin: 20px 0 10px 0;
-        font-size: 1.1em;
-        font-weight: bold;
-        border-bottom: 1px solid #ecf0f1;
-        padding-bottom: 5px;
-    }
+.character-card, .clue-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
 
-    .ktd-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin-bottom: 25px;
-    }
+.character-name {
+    font-family: 'Bahnschrift';
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
 
-    .ktd-item {
-        background-color: white;
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+.character-phrase {
+    color: #7f8c8d;
+    font-style: italic;
+}
 
-    .ktd-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+.clue-title {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
 
-    .ktd-item h3 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-        font-size: 20px;
-    }
+.clue-content {
+    color: #34495e;
+}
 
-    .ktd-item p {
-        margin-bottom: 10px;
-    }
+.checklist {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
 
-    .ktd-item ul {
-        margin-left: 20px;
-        margin-bottom: 15px;
-    }
+.checklist h5 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
 
-    /* Сетка для огоньков */
-    .bonfire-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
-    .bonfire-item {
-        background-color: white;
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
+.checklist-item input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
 
-    .bonfire-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
+/* Стили для сценария мероприятия с подготовкой */
+.event-phase {
+    margin-bottom: 25px;
+}
 
-    .bonfire-item h3 {
-        color: #2c3e50;
-        margin-bottom: 15px;
-        font-size: 20px;
-    }
+.stage-direction {
+    font-family: 'Bahnschrift';
+    color: #7f8c8d !important;
+    font-style: italic !important;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+.dialogue-card {
+    margin: 15px 0;
+    text-align: justify;
+}
+
+.speaker {
+    font-family: 'Bahnschrift';
+    color: #3498db !important;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dialogue-card > div:not(.speaker) {
+    font-family: 'Bahnschrift';
+    color: #2c3e50 !important;
+}
+
+.song-card {
+    margin: 15px 0;
+    text-align: justify;
+}
+
+.song-part {
+    margin-bottom: 5px;
+}
+
+/* Выравнивание номеров по центру */
+.event-phase h6 {
+    color: #2c3e50;
+    margin: 20px 0 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 5px;
+}
+
+/* Убраны точки из списков и заменен бирюзовый на голубой */
+.event-meta {
+    background-color: #e8f4ff; /* Голубой вместо бирюзового */
+}
+
+.quote {
+    background-color: #f0f8ff; /* Голубой вместо бирюзового */
+    border-left: 4px solid #3498db; /* Синий акцент */
+}  
+
+#ktd {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    position: relative;
+    font-weight: 700;
+}
+
+.ktd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.ktd-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ktd-image-container {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.ktd-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ktd-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ktd-title {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.ktd-title i {
+    margin-right: 10px;
+    color: #3498db;
+}
+
+.ktd-description {
+    margin-bottom: 20px;
+    color: #7f8c8d;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.ktd-goal {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #e8f4fc, #d5ebfd);
+    border-radius: 10px;
+    border-left: 5px solid #3498db;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ktd-goal strong {
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.ktd-stages {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.ktd-stages h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.ktd-stages ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.ktd-stages li {
+    margin-bottom: 12px;
+    padding-left: 0;
+    position: relative;
+    line-height: 1.5;
+}
+
+.ktd-stages ul ul {
+    margin-top: 8px;
+    margin-left: 15px;
+    list-style: none;
+}
+
+.ktd-essence {
+    padding: 18px;
+    border-radius: 10px;
+    border: 2px dashed #0f40f1;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ktd-essence h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.ktd-essence h4 i {
+    margin-right: 8px;
+    color: #499bbc;
+}
+
+.ktd-essence ul {
+    padding-left: 0;
+    margin-top: 8px;
+    list-style: none;
+}
+
+.ktd-essence li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+ /* Сетка для огоньков */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.subtitle {
+    color: #718096;
+    font-size: 1.2em;
+}
+
+.bonfire-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.bonfire-title {
+    color: #2d3748;
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.bonfire-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.meta-item {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.meta-item h3 {
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.meta-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.meta-item li {
+    margin-bottom: 5px;
+    padding-left: 0;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.material-item {
+    background: #edf2f7;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.procedure-step {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #5748bb;
+}
+
+.procedure-step ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.procedure-step li {
+    margin-bottom: 8px;
+    padding-left: 0;
+}
+
+.step-title {
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.mission-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.mission-item {
+    background: #d6e9ff99;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.feature-item {
+    border-style:dashed;
+    border-color: #3d5873;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.feature-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.feature-item li {
+    margin-bottom: 5px;
+    padding-left: 0;
+}
+
+.bonfire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.bonfire-item {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.bonfire-item:hover {
+    transform: translateY(-5px);
+}
+
+.bonfire-image {
+    width: 100%;
+    height: 200px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718096;
+    font-size: 0.9em;
+}
+
+.bonfire-item h3 {
+    color: #2d3748;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.bonfire-item p {
+    margin-bottom: 10px;
+    color: #4a5568;
+}
+
+.bonfire-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.bonfire-item li {
+    margin-bottom: 8px;
+    padding-left: 0;
+}
     
     /* Адаптивность для мобильных устройств */
 
@@ -484,6 +857,13 @@
         }
     }
     
+      @media (max-width: 900px) {
+            .ktd-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 25px;
+            }
+        }
+
     @media (max-width: 992px) {
         .event-details {
             grid-template-columns: 1fr;
@@ -614,6 +994,20 @@
         }
     }
 
+   @media (max-width: 600px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .ktd-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ktd-content {
+                padding: 20px;
+            }
+        }
+
     @media (max-width: 480px) {
         body {
             font-size: 13px;
@@ -701,75 +1095,549 @@
                     <li><a href="#games" class="active">Игры</a></li>
                     <li><a href="#events">Мероприятия</a></li>
                     <li><a href="#ktd">КТД</a></li>
-                    <li><a href="#bonfires">Огоньки</a></li>
+                    <li><a href="#bonfire-section">Огоньки</a></li>
                 </ul>
             </nav>
         </div>
     </header>
- <section id="games">
+<section id="games">
         <h2 class="section-title">Игры</h2>
         <div class="games-grid">
             <div class="game-category">
+                <h3>Организационный период:</h3>
+                <div class="game-item">
+                    <div class="game-title">1. «Мосты дружбы»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Создать комфортную атмосферу для знакомства, снизить уровень тревожности и скованности в первый день, сформировать первые позитивные связи между детьми через взаимный интерес и внимание.
+                        <br><br><strong>Возраст участников:</strong> 8 – 15 лет.
+                        <br><strong>Для младших (8-10 лет):</strong> Акцент на простые вопросы (имя, любимый мультфильм, животное).
+                        <br><strong>Для старших (11-15 лет):</strong> Можно включать более глубокие темы (хобби, мечты, интересные истории из жизни).
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Коммуникативные навыки: Умение задавать вопросы, слушать и слышать собеседника, кратко и ясно излагать информацию</li>
+                            <li>Социальная адаптация: Помощь в быстром и безболезненном вхождении в новый коллектив, преодоление барьеров в общении</li>
+                            <li>Эмпатия и внимание к другому: Развитие способности проявлять искренний интерес к другому человеку, запоминать детали</li>
+                            <li>Сплочение коллектива: Формирование чувства общности и доверия, когда каждый становится «услышанным» и представленным группе</li>
+                            <li>Снятие эмоционального напряжения: Игровая форма знакомства менее стрессова, чем традиционный круг, где каждый говорит о себе сам</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Список примерных вопросов (опционально, но желательно): Распечатанные карточки или написанный на ватмане/доске список тем для обсуждения. Это помогает детям, которые стесняются или не знают, о чём спросить</li>
+                            <li>Таймер или часы: Для контроля времени</li>
+                            <li>Мягкая игрушка или мячик: Можно использовать как «эстафетную палочку» — у кого в руках предмет, тот представляет своего напарника</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и инструктаж (3-5 минут):</strong><br>
+                                Вожатый собирает всех детей в круг или в общем пространстве.<br>
+                                Объявляет: «Ребята, чтобы наш отряд стал по-настоящему дружной командой, важно познакомиться и узнать друг о друге побольше. Сейчас мы поиграем в «Мосты дружбы». Мы разделимся на пары, и у вас будет 5 минут, чтобы узнать о своем напарнике как можно больше интересного».<br>
+                                Объясняет задачу: «Ваша задача — не просто задать вопросы, а по-настоящему узнать человека. Спросите не только как его зовут, но и о его увлечениях, о том, что он любит, о его мечтах или о самом запомнившемся событии лета. Чем уникальнее факт, который вы узнаете, тем лучше!»<br>
+                                Показывает список вопросов на доске/карточках и засекает время.</li>
+
+                            <li><strong>Этап знакомства в парах (5-7 минут):</strong><br>
+                                Дети расходятся по парам (можно разделить произвольнно, попросив встать с тем, кто рядом, или используя жеребьёвку).<br>
+                                В это время ведущий перемещается между парами, помогая начать разговор, если дети стесняются, и подбадривая их.<br>
+                                За 1 минуту до конца вожатый предупреждает: «Ребята, у вас осталась 1 минута, чтобы закончить ваш активный расспрос!»</li>
+
+                            <li><strong>Этап представления (10-15 минут, в зависимости от количества пар):</strong><br>
+                                Все возвращаются в общий круг.<br>
+                                Вожатый: «А теперь самый важный момент! Каждый из нас станет «голосом» своего друга. Ваша задача — представить своего напарника всей группе так ярко и интересно, чтобы мы все сразу захотели с ним дружить! Начните с его имени и расскажите 2-3 самых запомнившихся факта о нём».<br>
+                                Пары по очереди представляют друг друга. Первый представляет второго, затем второй представляет первого.<br>
+                                Вожатый активно поддерживает выступающих, может задать уточняющий вопрос группе: «Ребята, запомнили, как зовут Сашу? А кто еще любит играть в футбол, как наш новый друг Коля?» — это способствует лучшему запоминанию.</li>
+
+                            <li><strong>Завершение (2-3 минуты):</strong><br>
+                                После того как все пары выступили, вожатый подводит итог: «Вот видите, сколько у нас в отряде интересных и разных людей! Теперь у каждого из вас есть как минимум один знакомый, с которым вы уже построили "мостик дружбы". Давайте в течение смены продолжим строить такие мосты между всеми!»</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="game-item">
+                    <div class="game-title">2. «Карта сокровищ»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> В игровой форме выявить детей с лидерскими, организаторскими и аналитическими способностями, а также развить навыки командной работы, коммуникации и совместного принятия решений в условиях ограниченного времени.
+                        <br><br><strong>Возраст участников:</strong> 10 – 16 лет.
+                        <br><strong>Для младших (10-12 лет):</strong> Загадки должны быть более простыми, с опорой на визуальные подсказки и известные детям места. Маршрут короче.
+                        <br><strong>Для старших (13-16 лет):</strong> Загадки могут быть сложнее, включать логические задачи, ребусы, шифры (например, азбука Морзе, цифровые коды). Маршрут длиннее, может требовать ориентирования по компасу.
+                        <br><br><strong>На что направлена игра:</strong>
+                        <ul>
+                            <li>Выявление лидеров: Позволяет наблюдать за тем, кто берет на себя роль капитана, генерирует идеи, распределяет роли, мотивирует команду и принимает финальные решения</li>
+                            <li>Развитие стратегического мышления: Участники учатся не просто бегать от точки к точке, а анализировать карту, выстраивать оптимальный маршрут, предвосхищать следующие шаги</li>
+                            <li>Командное взаимодействие: Игра требует объединения усилий: кто-то лучше расшифровывает, кто-то лучше ориентируется на местности, а кто-то следит за временем. Важно умение договариваться и прислушиваться друг к другу</li>
+                            <li>Развитие логики и внимания: Разгадывание загадок и головоломок тренирует когнитивные способности</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Карта сокровищ (1 копия на команду): Красочно оформленная схема территории (лагеря, парка, помещения) с отмеченными контрольными точками. Можно состарить бумагу, обжечь края для антуража</li>
+                            <li>Конверты с загадками/головоломками (по числу точек на маршруте): Каждая разгадка указывает на следующую точку. Например: «Там, где высоко и ветер гуляет, следующую подсказку ты отыщешь» (качели)</li>
+                            <li>Финальный «клад»: Коробка или сундук со «сокровищем» — это могут быть сладости, небольшие сувениры, грамоты или символ будущей победы (например, ключ от города)</li>
+                            <li>Бланк для наблюдателя (для вожатого): Таблица с колонками: «Имя ребенка», «Проявление лидерства», «Предложение идей», «Умение слушать», «Конфликтное поведение», «Примечания»</li>
+                            <li>Часы или таймер: Для создания легкого прессинга (например, «Клад исчезнет через 40 минут!»)</li>
+                            <li>Ручки/карандаши (на команду): Для решения письменных головоломок</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и инструктаж (7-10 минут):</strong><br>
+                                Вожатый делит детей на команды по 5-7 человек. Желательно, чтобы команды были смешанными и случайными.<br>
+                                Создается легенда: «Друзья, по старой легенде, на этой территории пираты спрятали сундук с сокровищами. До нас дошли лишь обрывки их карт. Ваша задача — объединиться, пройти весь маршрут, разгадать все загадки и первыми найти клад! Помните: сокровище достанется самой быстрой, дружной и сообразительной команде».<br>
+                                Раздаются карты и запечатанные конверты с первой загадкой. Объясняются правила: нельзя бежать вперед всей командой, не разгадав загадку; нельзя мешать другим командам; все передвижения — только вместе, всей командой.</li>
+
+                            <li><strong>Основной этап: Поиск сокровищ (25-40 минут):</strong><br>
+                                По сигналу команды вскрывают первые конверты и начинают разгадывать загадку.<br>
+                                Роль вожатого: На этом этапе взрослые не помогают, а только наблюдают за процессом, делая пометки в бланках.<br>
+                                Ключевые моменты для наблюдения:<br>
+                                Организатор: Кто первый берет карту и предлагает план действий? («Давайте сначала прочитаем загадку!»)<br>
+                                Генератор идей: Кто активно выдвигает версии, где может быть следующая точка?<br>
+                                Исполнитель: Кто берет на себя роль «носителя карты» или бежит проверять версию?<br>
+                                Аналитик: Кто сопоставляет подсказку с картой и находит логическое решение?<br>
+                                Медиатор/«хранитель духа»: Кто следит, чтобы все высказались, успокаивает спорщиков, подбадривает команду в случае неудачи? («Не страшно, подумаем еще!»)<br>
+                                Конфликтное поведение: Кто упрямится, перебивает, игнорирует идеи других?</li>
+
+                            <li><strong>Финальный этап: Обнаружение клада (5 минут):</strong><br>
+                                Команда, которая первой разгадала все загадки и нашла «сокровище», громко оповещает об этом всех (например, криком «Сокровище найдено!»)<br>
+                                Все команды собираются вокруг финальной точки. Происходит вскрытие сундука и награждение победителей.</li>
+
+                            <li><strong>Подведение итогов и рефлексия (10-15 минут):</strong><br>
+                                Это самый важный этап после игры. Вожатый собирает всех и предлагает обсудить:<br>
+                                Как вашей команде удалось найти клад?<br>
+                                С какими трудностями вы столкнулись?<br>
+                                Как вы принимали решения? Кто предлагал самые удачные идеи?<br>
+                                Что бы вы сделали по-другому, если бы сыграли еще раз?<br><br>
+                                Вожатый не называет «выявленных лидеров» публично, чтобы никого не смущать. Эта информация используется для дальнейшего формирования актива отряда и распределения поручений.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="game-item">
+                    <div class="game-title">3. «Командный плакат»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Создать визуальную манифестацию командного духа, выявить общие ценности и интересы участников, закрепить чувство принадлежности к группе через совместное творчество и достижение договоренностей.
+                        <br><br><strong>Возраст участников:</strong> 7 – 17 лет.
+                        <br><strong>Для младших (7-10 лет):</strong> Акцент на яркие, простые символы (солнце для дружбы, животное-талисман, общие любимые игры)
+                        <br><strong>Для старших (11-17 лет):</strong> Плакат может отражать более сложные концепции: девиз и ценности команды, общие цели на смену, коллаж из ассоциаций или юмористическое отображение командной динамики
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Формирование коллективной идентичности: Создание общего продукта («Это НАШ плакат») укрепляет связи и дает участникам почувствовать себя частью единого целого</li>
+                            <li>Развитие навыков сотрудничества и переговоров: Дети учатся договариваться о общей идее, распределять зоны ответственности, учитывать мнение каждого участника и находить компромиссы</li>
+                            <li>Визуализация общих целей и ценностей: Процесс обсуждения и отображения на бумаге помогает команде осознать, что их объединяет</li>
+                            <li>Раскрытие творческого потенциала: Игра позволяет проявить себя не только вербально, но и через рисунок, цвет, композицию, что особенно важно для детей, которые стесняются говорить</li>
+                            <li>Публичное представление результата: Краткая презентация плаката перед другими группами развивает уверенность в себе и навыки публичных выступлений</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Большие листы бумаги (ватман) – по одному на каждую команду</li>
+                            <li>Наборы разноцветных фломастеров, маркеров, карандашей и мелков (по набору на команду). Важно, чтобы цветовая палитра была богатой</li>
+                            <li>Простой карандаш и ластик (по желанию, для наброска)</li>
+                            <li>Столы или свободное пространство для комфортного рисования</li>
+                            <li>Клейкая лента (скотч) или кнопки для фиксации готовых плакатов</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и постановка задачи:</strong><br>
+                                Вожатый делит детей на команды (оптимально 4-6 человек). Это могут быть те же группы, что и в «Карте сокровищ», или новые.<br>
+                                Формулируется творческое задание: «Ребята, у каждой команды есть своя уникальная энергия, общие интересы и мечты. Сейчас ваша задача — создать визитную карточку вашей команды — командный плакат! Он должен отражать то, что вас объединяет. Это может быть ваш общий девиз, ваши цели на эту смену, ваши увлечения или просто то, что вы хотите рассказать о себе другим командам. У вас есть 20-25 минут!»<br>
+                                Вожатый раздает реквизит и включает таймер.</li>
+
+                            <li><strong>Мозговой штурм и обсуждение идеи:</strong><br>
+                                Ключевой этап для формирования коллектива. Вожатый подчеркивает: «Прежде чем начать рисовать, обсудите и договоритесь, что будет на вашем плакате. Выслушайте идеи каждого!»<br>
+                                В это время вожатый проходит по командам и, при необходимости, помогает наводящими вопросами:<br>
+                                «Как бы вы могли назвать вашу команду?»<br>
+                                «Какое у вас может быть общее правило или девиз?»<br>
+                                «Вспомните, что вы узнали друг о друге в предыдущих играх. Что вас объединяет?»<br>
+                                «Каким цветом или символом можно показать вашу дружбу?»<br>
+                                Вожатый фиксирует, как проходит обсуждение: кто предлагает идеи, кто их структурирует, кто всех слушает, а кто пытается доминировать.</li>
+
+                            <li><strong>Этап совместного творчества:</strong><br>
+                                Команды приступают к рисованию.<br>
+                                Вожатый отмечает:<br>
+                                Распределение ролей: Кто рисует крупные элементы, кто пишет текст, кто раскрашивает, кто следит за композицией<br>
+                                Взаимодействие: Помогают ли участники друг другу? Предлагают ли помощь? Уступают ли лучшие фломастеры?<br>
+                                Конфликты: Как команда решает разногласия по поводу цвета или сюжета? Находят ли компромисс?<br>
+                                Вовлеченность: Участвуют ли в процессе все члены команды или есть «изгои» и «пассивные наблюдатели»?<br>
+                                За 5 минут до конца вожатый предупреждает команды, чтобы они начали завершать работу.</li>
+
+                            <li><strong>Презентация плакатов:</strong><br>
+                                Все команды по очереди вывешивают свои плакаты и представляют их.<br>
+                                Важно, чтобы выступали не один-два человека, а вся команда. Можно распределить роли: один говорит о девизе, другой — о символах, третий — о целях.</li>
+
+                            <li><strong>Завершение и рефлексия:</strong><br>
+                                После всех выступлений вожатый благодарит все команды за креативность и слаженную работу.<br>
+                                Можно задать вопросы для рефлексии:<br>
+                                1. «Что было самым сложным в создании общего плаката?» (Частый ответ: договориться)<br>
+                                2. «Как вам удалось прийти к единой идее?»<br>
+                                3. «Узнали ли вы что-то новое о своих товарищах по команде в процессе?»<br>
+                                4. «Какой плакат, кроме вашего, вам запомнился и почему?»<br><br>
+                                Готовые плакаты становятся украшением отрядного уголка и напоминанием о том, что команда — это единое целое.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-category">
+                <h3>Игры Основного периода</h3>
+                <div class="game-item">
+                    <div class="game-title">1. «Картографы»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Сплочение коллектива через совместное создание сложного арт-объекта — карты идеального города. Игра направлена на развитие навыков коллективного планирования, распределения ресурсов, пространственного мышления и достижения консенсуса в процессе творчества.
+                        <br><br><strong>Возраст участников:</strong> 8 – 16 лет.
+                        <br><strong>Для младших (8-10 лет):</strong> Акцент на фантазийные и развлекательные объекты (город сладостей, парк аттракционов, река из лимонада)
+                        <br><strong>Для старших (11-16 лет):</strong> Можно предложить создать город с устойчивой инфраструктурой, продумать экологические вопросы, логистику, социальные объекты, что стимулирует более глубокое обсуждение и стратегическое мышление
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Развитие системного мышления: Участники учатся видеть не просто набор объектов, а единую систему, где все элементы (жилые зоны, дороги, парки) взаимосвязаны</li>
+                            <li>Коллективное планирование и проектирование: Требует от группы совместно определить приоритеты, зонировать территорию и распределить пространство на листе — ценный навык для любой проектной деятельности</li>
+                            <li>Умение договариваться и находить компромиссы: Необходимость учесть интересы и идеи всех членов команды («Я хочу кинотеатр!» — «А мне нужен стадион!») является ключевым вызовом в этой игре</li>
+                            <li>Творческое решение задач: Участники ищут нестандартные подходы к объединению разных идей в единый гармоничный проект</li>
+                            <li>Закрепление чувства общего достижения: Создание масштабной и детализированной карты дает мощное ощущение совместно выполненной работы и общего «артефакта»</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Очень большие листы бумаги (ватман А1 или обои) – по одному на команду. Большой формат стимулирует масштабное мышление и работу сразу нескольких человек</li>
+                            <li>Богатый набор пишущих средств: маркеры разной толщины, фломастеры, цветные карандаши, гелевые ручки</li>
+                            <li>Простые карандаши и ластики для предварительной разметки</li>
+                            <li>Дополнительные материалы (опционально): стикеры для пометок, линейки, трафареты для простых геометрических фигур</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и введение в игру:</strong><br>
+                                Вожатый формирует команды по 4-6 человек.<br>
+                                Он создает легенду, погружающую в игру: «Представьте, что вы группа знаменитых архитекторов и градостроителей. Вам выпала уникальная возможность — с нуля спроектировать идеальный город для счастливой жизни! У вас есть чистое полотно — этот большой лист. Ваша задача — создать детализированную карту этого города. Продумайте всё: где будут жить люди, где работать, где отдыхать, как они будут перемещаться. Что самое главное должно быть в вашем идеальном городе? У вас есть 30 минут!»<br>
+                                Раздается реквизит. Можно предложить командам придумать название своему городу.</li>
+
+                            <li><strong>Фаза стратегического планирования:</strong><br>
+                                Это самый важный и сложный этап. Команда должна договориться об общей концепции.<br>
+                                Роль вожатого: На этом этапе важно следить за динамикой обсуждения и, при необходимости, задавать наводящие вопросы командам, которые не могут начать:<br>
+                                «С чего вы начнете? Может, стоит сначала наметить главные дороги или реку?»<br>
+                                «Как вы разделите территорию: где будет центр, а где — спальные районы?»<br>
+                                «Учли ли вы интересы всех жителей? Где будут гулять дети, а где заниматься спортом подростки?»<br>
+                                Вожатый фиксирует:<br>
+                                Лидер-стратег: Кто предлагает общую структуру, схему планировки?<br>
+                                Генератор идей: Кто предлагает конкретные объекты (библиотека, аквапарк, зоопарк)?<br>
+                                Модератор: Кто следит, чтобы все идеи были услышаны, и предлагает компромиссы («Давайте поставим скейт-парк рядом с музыкальным клубом, это будет молодежный квартал»)?<br>
+                                Исполнитель: Кто берет на себя инициативу начать рисовать?</li>
+
+                            <li><strong>Фаза совместного рисования:</strong><br>
+                                Команды переносят свой план на бумагу.<br>
+                                Вожатый отмечает:<br>
+                                1. Распределение работы: Работают ли участники хаотично или договариваются, кто рисует какие зоны? («Я рисую парк, ты — жилые дома»)<br>
+                                2. Взаимопомощь: Помогают ли друг другу, если видят, что кто-то не справляется? Делятся ли материалами?<br>
+                                3. Следование плану: Отступают ли от первоначального замысла или строго его придерживаются? Гибки ли они в изменениях?<br>
+                                4. Вовлеченность: Участвует ли в рисовании каждый член команды? Есть ли те, кто самоустранился?</li>
+
+                            <li><strong>Презентация городов:</strong><br>
+                                Команды по очереди представляют свои карты. Они выступают в роли «совета архитекторов»<br>
+                                Важно, чтобы каждый участник команды рассказал о каком-то элементе города, который он придумал или который ему особенно нравится<br>
+                                Вожатый и другие команды могут задавать вопросы: «А почему у вас больница находится на окраине?», «Как жители вашего города добираются от дома до работы?»</li>
+
+                            <li><strong>Рефлексия и подведение итогов:</strong><br>
+                                Вожатый организует обсуждение, задавая вопросы, направленные на анализ процесса, а не результата:<br>
+                                «Что было самым трудным в создании общего города?» (Частые ответы: «Решить, что строить первым», «Поместить все идеи на один лист», «Договориться»)<br>
+                                «Как вам удалось прийти к согласию, когда мнения расходились?»<br>
+                                «Чью идею, вы считаете, было самым интересно воплощать на карте?»<br>
+                                «Чему вы научились, работая над этим проектом всей командой?»<br><br>
+                                Итогом становится осознание того, что сложная задача решается сообща, а компромисс приводит к созданию чего-то цельного и уникального. Готовые карты становятся ярким свидетельством способности команды к совместному творчеству.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="game-item">
+                    <div class="game-title">2. «Забавные препятствия»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Создать условия для естественного проявления и развития лидерских качеств у участников в условиях физической активности, требующей координации, взаимопомощи и быстрого принятия решений. Игра направлена на то, чтобы участники на практике ощутили важность четкого руководства и слаженных действий для достижения общей цели.
+                        <br><br><strong>Возраст участников:</strong> 9 – 17 лет.
+                        <br><strong>Для младших (9-12 лет):</strong> Препятствия должны быть безопасными, больше игровыми и ориентированными на ловкость, а не на силу (пролезть через обруч, пройти по извилистой линии)
+                        <br><strong>Для старших (13-17 лет):</strong> Можно включать задания, требующие больше стратегии, физической выносливости и смекалки (перенос "радиоактивного груза", прохождение с завязанными глазами с голосовыми подсказками)
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Развитие лидерских качеств: В условиях ограниченного времени и конкретной задачи проявляются участники, способные взять на себя роль координатора, распределить обязанности и мотивировать команду</li>
+                            <li>Формирование доверия внутри команды: Многие препятствия требуют от участников физической поддержки и уверенности в том, что команда его не подведет</li>
+                            <li>Развитие коммуникации: Успешное прохождение невозможно без четких команд, активного слушания и обратной связи</li>
+                            <li>Критическое и стратегическое мышление: Команда и лидер должны быстро анализировать каждое препятствие, оценивать сильные стороны участников и выбирать оптимальную тактику его прохождения</li>
+                            <li>Сплочение через совместное преодоление трудностей: Физическая активность и азарт общей цели мощно объединяют коллектив</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Оборудование для полосы препятствий (варьируется в зависимости от возможностей):</li>
+                            <li>Веревки/ленты: для обозначения "паутины", лабиринта или зон, которые нельзя пересекать</li>
+                            <li>Стулья, конусы, кегли: для создания зигзагообразной трассы</li>
+                            <li>Обручи: чтобы пролезть через них или переносить, держась за руки</li>
+                            <li>Мячи: для задания на перенос или удержание</li>
+                            <li>Повязки на глаза (2-3 шт)</li>
+                            <li>Листы бумаги/картонки ("кочки"): для переправы через "болото"</li>
+                            <li>Большая коробка ("радиоактивный материал")</li>
+                            <li>Свисток для сигнала начала и окончания</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и инструктаж:</strong><br>
+                                Ведущий заранее создает полосу препятствий из 5-7 этапов. Пример последовательности:<br>
+                                «Паутина»: натянутые веревки между деревьями/стульями, через которые нужно перебраться всей команде, не задев их<br>
+                                «Болото»: разбросанные "кочки" (листы бумаги), по которым нужно переправиться всем, не "утонув"<br>
+                                «Слепой поводырь»: один участник с завязанными глазами, а команда голосовыми командами направляет его через расставленные кегли<br>
+                                «Крокодилы»: участники должны проползти определенный участок определенным способом (например, гуськом, держась за лодыжки впередистоящего)<br>
+                                «Перенос сокровища»: всей командой, не используя руки, переносить мяч или коробку от старта до финиша<br>
+                                Вожатый представляет полосу команде: «Впереди — полоса веселых, но сложных препятствий. Ваша задача — всей командой пройти ее от старта до финиша. Но есть главное правило: команда должна оставаться единым целым! Если один человек не прошел препятствие или нарушил правило, команда возвращается и проходит его заново. Ваша цель — не просто пройти быстро, а пройти ВМЕСТЕ!»</li>
+
+                            <li><strong>Этап стратегического планирования:</strong><br>
+                                Команде дается немного времени у линии старта, чтобы осмотреть трассу и выработать тактику<br>
+                                Роль вожатого: В этот момент нужно внимательно следить за группой<br>
+                                Кто берет на себя инициативу? ("Давайте сначала посмотрим, что там дальше!")<br>
+                                Кто предлагает стратегию? ("Это препятствие я пройду первым и буду помогать остальным", "Давайте самого легкого посадим на плечи")<br>
+                                Кто распределяет роли? ("Ты лучше всех видишь, ты будешь руководить в этапе с повязкой")<br>
+                                Прислушивается ли команда к предложениям?</li>
+
+                            <li><strong>Основной этап: Прохождение полосы препятствий:</strong><br>
+                                По сигналу команда начинает прохождение<br>
+                                Вожатый следит за безопасностью и соблюдением правил на каждом этапе<br>
+                                Ключевые моменты для наблюдения за лидером и группой:<br>
+                                  Координация: Лидер отдает четкие и понятные команды или суетится?<br>
+                                  Поддержка и мотивация: Лидер и другие участники подбадривают тех, у кого не получается? ("Не торопись, у тебя получится!", "Молодец!")<br>
+                                  Решение проблем: Когда тактика не срабатывает, лидер быстро предлагает новый план? ("Стоп, так не выходит, давайте попробуем по-другому...")<br>
+                                  Распределение внимания: Лидер следит за всеми членами команды или концентрируется только на себе?<br>
+                                  Гибкость: Меняются ли роли в команде на разных этапах в зависимости от того, чьи навыки больше подходят?</li>
+
+                            <li><strong>Завершение и анализ:</strong><br>
+                                После того как все команды финишируют, проводится совместное обсуждение<br>
+                                Вожатый задает вопросы, направленные на анализ процесса лидерства и взаимодействия:<br>
+                                «Как вашей команде удалось справиться с самыми сложными препятствиями?»<br>
+                                «Кто в вашей команде чаще всего брал на себя роль координатора? Менялся ли лидер на разных этапах?»<br>
+                                «Все ли члены команды были услышаны? Чье предложение оказалось самым полезным?»<br>
+                                «Что вы чувствовали, когда вам приходилось доверять свою безопасность товарищам?»<br>
+                                «Если бы вам пришлось проходить полосу еще раз, что бы вы сделали иначе в плане организации?»<br><br>
+                                Вожатый подводит итог, подчеркивая, что успех зависел не от одного лидера, а от слаженной работы каждого. Важно похвалить и лидеров, и тех, кто был надежными исполнителями, без которых команда тоже не справилась бы.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="game-item">
+                    <div class="game-title">3. «Секреты лагеря»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Углубить знакомство между участниками, создать атмосферу открытости и доверия, позволить детям узнать друг о друге неочевидные, но интересные факты, способствующие установлению более тесных и искренних связей.
+                        <br><br><strong>Возраст участников:</strong> 10 – 17 лет.
+                        <br><strong>Для младших (10-12 лет):</strong> Факты могут быть более простыми и забавными (боюсь темноты, умею шевелить ушами, собираю наклейки от фруктов)
+                        <br><strong>Для старших (13-17 лет):</strong> Факты могут быть более личными и глубокими (играю на необычном инструменте, встречался с известным человеком, преодолел свой страх, имею необычное хобби)
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Развитие эмпатии и интереса к другому человеку: Игра учит видеть в каждом человеке уникальную личность с собственным опытом и историями</li>
+                            <li>Создание атмосферы доверия: Добровольное раскрытие небольшого «секрета» о себе способствует формированию более безопасной и открытой среды в коллективе</li>
+                            <li>Развитие дедуктивного мышления и внимания: Участники учатся сопоставлять известные им черты характера и поведение человека с загаданным фактом</li>
+                            <li>Снижение социальных барьеров: Обсуждение забавных и необычных фактов снимает напряжение и помогает детям раскрепоститься</li>
+                            <li>Стимулирование памяти: Игра требует запоминания информации о других, что укрепляет межличностные связи</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Небольшие одинаковые листочки бумаги (по 2-3 на каждого участника, на случай ошибки)</li>
+                            <li>Ручки или карандаши (у каждого должен быть свой)</li>
+                            <li>Шляпа, коробка или любой другой непрозрачный сосуд для сбора записок</li>
+                            <li>Список примеров «секретов» (опционально): Для помощи тем, кто затрудняется с идеей. Например: «Умею делать волну языком», «Никогда не ел арбуз», «Жил в другой стране», «Победил в конкурсе по поеданию блинов»</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и создание настроения:</strong><br>
+                                Вожатый собирает всех в уютный круг, где каждый хорошо видит друг друга<br>
+                                Он создает доверительную атмосферу: «Ребята, у каждого из нас есть свои маленькие секреты, интересные факты или забавные истории, о которых многие могут не знать. Давайте сегодня поделимся ими в нашей игре "Секреты лагеря". Это не соревнование, а возможность узнать друг друга лучше и, возможно, найти единомышленников»<br>
+                                Важно подчеркнуть правило конфиденциальности и уважения: «То, чем мы поделимся сегодня в кругу, остается здесь. Давайте будем внимательны и доброжелательны друг к другу»</li>
+
+                            <li><strong>Написание «секретов»:</strong><br>
+                                Вожатый раздает листочки и ручки<br>
+                                Дается инструкция: «Напишите на листочке один самый интересный или забавный факт о себе. Это должно быть что-то правдивое, но неочевидное. Постарайтесь не писать то, что все и так знают (например, "я люблю мороженое"). Пусть это будет ваш маленький "секрет". Не подписывайте листочки!»<br>
+                                В это время вожатый ходит по кругу и при необходимости помогает тем, кто задумался</li>
+
+                            <li><strong>Сбор и перемешивание «секретов»:</strong><br>
+                                Когда все готовы, участники складывают свои листочки в шляпу<br>
+                                Вожатый тщательно ее перемешивает</li>
+
+                            <li><strong>Основной этап: Угадывание и обсуждение:</strong><br>
+                                Вожатый начинает по кругу. Первый участник вытаскивает из шляпы случайный листочек и громко зачитывает написанный на нем факт<br>
+                                Далее он получает право сделать три предположения о том, кому может принадлежать этот «секрет». Он должен аргументировать свой выбор: «Я думаю, это Маша, потому что она очень творческий человек» или «Может быть, это Кирилл, он у нас самый спортивный»<br>
+                                После трех предположений или если участник сдался, автор «секрета» должен признаться<br>
+                                Важный шаг: После того как автор объявлен, ведущий стимулирует короткое обсуждение:<br>
+                                «Саша, расскажи немного подробнее, как ты научился жонглировать?»<br>
+                                «Ребята, а у кого-то еще есть похожий опыт?»<br>
+                                Просто похвалить за интересный факт: «Какой крутой факт, Оля! Никогда бы не подумал(а)!»<br>
+                                Ход переходит к следующему участнику, который вытаскивает новый листочек</li>
+
+                            <li><strong>Завершение и рефлексия:</strong><br>
+                                Когда все «секреты» разгаданы, вожатый благодарит всех за смелость и искренность<br>
+                                Можно провести короткое итоговое обсуждение:<br>
+                                «Какой факт вас удивил больше всего?»<br>
+                                «Узнали ли вы что-то новое о своих друзьях?»<br>
+                                «Трудно ли было делиться своим "секретом"?»<br><br>
+                                Вожатый подводит итог: «Теперь мы знаем, что в нашем отряде есть скрытые таланты, путешественники и обладатели уникального опыта. Давайте и дальше быть внимательными друг к другу, и тогда мы откроем еще много всего интересного!»<br><br>
+                                Эта игра является прекрасным завершающим аккордом организационного периода, переводя общение детей на более глубокий и личный уровень.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-category">
                 <h3>Подвижные игры</h3>
                 <div class="game-item">
-                    <div class="game-title">1. "Лабиринт-наоборот"</div>
-                    <div class="game-description">Игроки делятся на команды. На площадке создаётся лабиринт из верёвок, шин, досок. Но цель – не выйти из лабиринта, а войти внутрь, пройдя все препятствия, которые организаторы постоянно меняют (например, добавляют новые преграды или меняют маршрут). Побеждает команда, которая первой «заполнит» лабиринт всеми членами.</div>
+                    <div class="game-title">1. «Паук и мухи»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Развитие скорости, ловкости, реакции и координации движений. Игра тренирует умение быстро ориентироваться в пространстве, работать в команде («мух») и проявлять стратегическое мышление («пауку»)
+                        <br><br><strong>Возраст участников:</strong> 6 – 12 лет. Игра идеально подходит для младшего и среднего школьного возраста, так как содержит простые правила и активный, понятный сюжет
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Физическое развитие: Улучшает быстроту бега, умение резко менять направление движения, увертливость</li>
+                            <li>Развитие внимания и реакции: «Мушки» должны постоянно следить за «пауком», предугадывая его движения</li>
+                            <li>Тактическое мышление: «Паук» учится не просто бегать, а предсказывать траекторию движения «мух», отсекать их от безопасной зоны и действовать хитро</li>
+                            <li>Социальное взаимодействие: «Мушки» невольно начинают действовать как стая, чувствуя движение друг друга и коллективно уворачиваясь от опасности</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Мел или несколько скакалок/веревок для обозначения круга («паутины»)</li>
+                            <li>Повязка на глаза (опционально): Если «пауку» хотят усложнить задачу и развить у него другие чувства (слух, ориентирование в пространстве без зрения)</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и разметка площадки:</strong><br>
+                                На земле рисуется большой круг (диаметром 5-10 метров, в зависимости от количества игроков). Это — «паутина»<br>
+                                В центре круга рисуется маленький круг (или кладется обруч) — «домик паука», откуда он начинает игру</li>
+
+                            <li><strong>Объяснение правил:</strong><br>
+                                Вожатый выбирает одного водящего — «Паука». Он занимает место в центре, в своем «домике»<br>
+                                Все остальные игроки — «Мушки». Они располагаются за пределами большого круга<br>
+                                Основные правила:<br>
+                                  Задача «Паука» — поймать как можно больше «мух», запятнав их (осалив рукой)<br>
+                                  Задача «Мух» — перебегать через «паутину» (большой круг) с одной стороны на другую, не будучи пойманными<br>
+                                  «Паук» может двигаться только внутри большого круга (по «паутине»)<br>
+                                  «Мушки» находятся в безопасности за пределами круга. Они могут забегать внутрь круга, чтобы перебежать на другую сторону, но не могут оставаться внутри надолго. Ведущий может ввести правило, что внутри круга можно находиться не более 5 секунд<br>
+                                  Пойманная «Муха» либо выбывает из игры, либо садится на корточки в том месте, где ее поймали, и становится частью «паутины», пытаясь мешать другим «мухам» (второй вариант делает игру динамичнее и интереснее)</li>
+
+                            <li><strong>Ход игры:</strong><br>
+                                Вожатый дает сигнал к началу игры (свистит в свисток или говорит: «Паук, лови мух!»)<br>
+                                «Мушки» начинают перебегать через круг, крича: «Мы - мушки, мы - плутовки, пауку не быть в удаловки!» или просто дразнят паука, чтобы спровоцировать его<br>
+                                «Паук» старается догнать и осалить их, пока те находятся внутри «паутины»<br>
+                                Игра продолжается до тех пор, пока «Паук» не переловит всех «мух» или пока ведущий не остановит игру (например, по истечении назначенного времени)</li>
+
+                            <li><strong>Подведение итогов:</strong><br>
+                                Подсчитывается количество пойманных «мух». Если играли несколько раундов, можно сравнить, какой «Паук» был самым результативным<br>
+                                Победителем объявляется самый ловкий «Паук» или, в следующем раунде, «Мухи», которые ни разу не были пойманы</li>
+                        </ol>
+                    </div>
                 </div>
+
                 <div class="game-item">
-                    <div class="game-title">2. "Эхо-шпион"</div>
-                    <div class="game-description">Один игрок – шпион, остальные – охранники. Шпион должен добраться до определённой точки, двигаясь только на звук своих шагов, остальные пытаются заглушить звук хлопками или топотом. Если охранник услышит шаги — поймает шпиона. Игра развивает слух, внимание и чуткость к пространству.</div>
+                    <div class="game-title">2. «Фризби-тег»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Развитие скорости, ловкости, реакции и меткости в активной игровой форме. Игра тренирует умение быстро уворачиваться от летящего объекта, точно бросать его по движущейся цели и постоянно оставаться в движении
+                        <br><br><strong>Возраст участников:</strong> 8 – 16 лет
+                        <br><strong>Для младших (8-10 лет):</strong> Рекомендуется использовать мягкие и легкие фризби (тряпичные или поролоновые), чтобы избежать травм и сделать игру безопаснее
+                        <br><strong>Для старших (11-16 лет):</strong> Можно использовать стандартные пластиковые фризби, что добавляет игре сложности и требует большей точности броска
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Физическое развитие: Улучшает координацию «глаз-рука», точность бросков, скорость бега и маневренность</li>
+                            <li>Развитие пространственного мышления и предвидения: Игрокам нужно не просто бегать, а предугадывать траекторию полета фризби и перемещение других участников</li>
+                            <li>Стратегическое мышление: «Ловец» учится не просто бросать диск, а выбирать оптимальную цель и момент для броска, чтобы перехватить инициативу</li>
+                            <li>Социальное взаимодействие и честность: Игра построена на честном признании попадания по себе и быстрой передаче роли, что воспитывает спортивное поведение</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Одно или несколько фризби (летающих дисков)</li>
+                            <li>Открытая площадка достаточного размера (спортивный зал, поляна, стадион), с четко обозначенными границами игры, чтобы участники не разбегались слишком далеко</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и объяснение правил:</strong><br>
+                                Вожатый определяет границы игровой площадки. Если игроки выбегают за них, это может считаться нарушением (например, они автоматически становятся «ловцом»)<br>
+                                Выбирается один водящий — «Ловец». Он получает фризби<br>
+                                Все остальные игроки — «Беглецы». Они свободно перемещаются в пределах площадки<br>
+                                Основные правила:<br>
+                                  Задача «Ловца» — осалить («запятнать») любого из «Беглецов», попав в них броском фризби<br>
+                                  Задача «Беглецов» — увернуться от летящего диска<br>
+                                  Попадание считается, если диск коснулся игрока, прежде чем упасть на землю. Не считается попадание, если диск попал в игрока после отскока от земли или другого объекта<br>
+                                  Запрещается бегать с диском в руках. «Ловец» может делать только несколько шагов для броска, но не может преследовать «Беглецов», держа диск в руке<br>
+                                  Тот, в кого попали, становится новым «Ловцом». Он поднимает диск и немедленно начинает преследование. Предыдущий «Ловец» быстро убегает, присоединяясь к «Беглецам»</li>
+
+                            <li><strong>Ход игры:</strong><br>
+                                Вожатый дает сигнал к началу игры<br>
+                                «Ловец» старается подобраться к скоплению «Беглецов» на расстояние броска и метко кинуть диск<br>
+                                «Беглецы» должны постоянно следить за перемещением «Ловца» и быть готовыми увернуться от летящего диска<br>
+                                Игра идет непрерывно, без пауз, так как роли постоянно меняются. Это поддерживает высокий темп и накал страстей<br>
+                                Вариация для усложнения: Можно ввести правило, что «Ловец» может сделать не более 3-5 шагов с диском в руках. Это заставляет его больше думать о позиции и точности броска, а не о беге за целью</li>
+
+                            <li><strong>Подведение итогов:</strong><br>
+                                Так как игра непрерывная и без явного победителя, основной акцент делается на процессе и полученных эмоциях<br>
+                                Вожатый хвалит всех участников за активность, меткость и честную игру. Можно отметить самого ловкого «Беглеца» (которого ни разу не осалили) и самого меткого «Ловца» (который чаще других попадал в цель)</li>
+                        </ol>
+                    </div>
                 </div>
+
                 <div class="game-item">
-                    <div class="game-title">3. "Захват ветра"</div>
-                    <div class="game-description">На открытой площадке вывешивается несколько лёгких платков (флагов). Игроки бегают с небольшими платками и пытаются, не задевая друг друга, дотянуться до «запрещённых» флагов и снять их. Если коснулся соперник – выбываешь до следующего раунда.</div>
+                    <div class="game-title">3. «Лабиринт-наоборот»</div>
+                    <div class="game-description">
+                        <strong>Цель игры:</strong> Развить стратегическое мышление, адаптивность и эффективное командное взаимодействие в условиях постоянно меняющихся правил. Игра учит быстро реагировать на изменения, распределять ресурсы и действовать как единый организм для достижения общей цели
+                        <br><br><strong>Возраст участников:</strong> 10 – 17 лет
+                        <br><strong>Для младших (10-12 лет):</strong> Лабиринт проще, препятствия больше физические (пролезть, перепрыгнуть). Изменения вносятся реже и проговариваются четко
+                        <br><strong>Для старших (13-17 лет):</strong> Лабиринт может быть сложным, с заданиями на логику и смекалку. Изменения могут быть более коварными и частыми, требующими быстрого пересмотра стратегии
+                        <br><br><strong>На что направлена игра (развивающий и психологический аспект):</strong>
+                        <ul>
+                            <li>Развитие адаптивности и гибкости мышления: Ключевой навык — способность моментально менять тактику в ответ на действия ведущего</li>
+                            <li>Стратегическое планирование и распределение ролей: Команда должна решить, в каком порядке игрокам штурмовать лабиринт, кого послать первым для разведки, а кого оставить на сложные участки</li>
+                            <li>Эффективная коммуникация в условиях стресса: Игрокам необходимо четко и быстро передавать информацию о новых препятствиях тем, кто еще не вошел в лабиринт</li>
+                            <li>Командная сплоченность и взаимовыручка: Успех зависит от того, насколько команда может действовать как единое целое, где продвижение одного участника — это общая победа</li>
+                            <li>Развитие физической ловкости и координации: Преодоление разнообразных препятствий требует от участников проявления физических навыков</li>
+                        </ul>
+
+                        <strong>Необходимый реквизит:</strong>
+                        <ul>
+                            <li>Материалы для создания лабиринта: веревки, скакалки, обручи, спортивные шины, доски, конусы, небольшие скамейки, стулья, модульные конструкции</li>
+                            <li>Дополнительный реквизит для "сюрпризов": повязки на глаза, мячи, корзины, головоломки (например, пазлы, которые нужно собрать, чтобы пройти), карточки с заданиями</li>
+                        </ul>
+
+                        <strong>Подробный ход игры:</strong>
+                        <ol>
+                            <li><strong>Подготовка и построение лабиринта:</strong><br>
+                                Вожатые заранее создают на площадке лабиринт с одним четко обозначенным входом. Внутри располагаются различные препятствия: "змейка" из конусов, "паутина" из веревок, тоннель из стульев, зона для прыжков через шины и т.д.<br>
+                                Определяется зона финиша — небольшое отмеченное пространство в самом сердце лабиринта, где будут собираться игроки</li>
+
+                            <li><strong>Инструктаж и разделение на команды:</strong><br>
+                                Игроки делятся на команды по 5-7 человек<br>
+                                Вожатый объясняет правила: "Это не обычный лабиринт. Ваша цель — не выбраться из него, а наоборот, всей командой проникнуть в его центр! Как только первый игрок вашей команды достигает финишной зоны, он остается там, и следующий участник начинает свой путь. Но будьте готовы к сюрпризам! Мы, организаторы, будем постоянно менять лабиринт: добавлять новые преграды, менять маршрут или давать дополнительные задания. Побеждает команда, чьи игроки первыми полностью соберутся в центре!"<br>
+                                Подчеркивается, что помогать друг другу можно только словами, находясь на своем этапе пути. Физически помогать (протягивать руку, переносить) запрещено</li>
+
+                            <li><strong>Первый этап: Начало штурма:</strong><br>
+                                По сигналу первые участники от каждой команды стартуют и начинают проходить лабиринт<br>
+                                В это время остальные члены команды внимательно следят за их продвижением, чтобы запомнить удачный маршрут</li>
+
+                            <li><strong>Основной этап: Внесение хаоса и адаптация:</strong><br>
+                                Как только первые игроки достигли середины, вожатый дает сигнал и объявляет первое изменение<br>
+                                Примеры изменений ("Сюрпризы от Организатора"):<br>
+                                  "Закрытие прохода!": Ведущий перекрывает один из основных коридоров веревкой или ставит конус<br>
+                                  "Новое препятствие!": На пути устанавливается новое задание (пройти 3 метра с мячом на голове, проползти по-пластунски под скамейкой)<br>
+                                  "Ослепление!": Следующий игрок должен пройти часть пути с завязанными глазами, руководствуясь только подсказками команды<br>
+                                  "Головоломка!": Чтобы открыть проход, нужно собрать пазл из 5-6 крупных деталей<br>
+                                  "Смена маршрута!": Ведущий объявляет, что теперь нельзя пользоваться синим маршрутом, а только желтым (меняются разрешенные для прохода цвета ленточек или конусов)<br>
+                                Команды вынуждены на ходу менять свою стратегию, а игрокам, уже находящимся внутри, приходится искать обходные пути</li>
+
+                            <li><strong>Финал и определение победителя:</strong><br>
+                                Игра моментально заканчивается, как только последний игрок одной из команд ступает в финишную зону<br>
+                                Эта команда объявляется победителем</li>
+
+                            <li><strong>Рефлексия и подведение итогов:</strong><br>
+                                Вожатый подчеркивает, что победа стала возможной не благодаря скорости одного человека, а благодаря слаженной работе, гибкости и поддержке всей команды в условиях постоянно меняющейся среды</li>
+                        </ol>
+                    </div>
                 </div>
-                <div class="game-item">
-                    <div class="game-title">4. «Паук и мухи»</div>
-                    <div class="game-description">Цель: Поймать как можно больше «мух», не нарушая правил! Инвентарь: Мел или скакалки для разметки «паутины», повязки (по желанию). Правила: - На земле рисуется большая «паутина» — лабиринт из кругов и линий (или просто круг диаметром 8–10 м). - Один ребёнок — «паук» — стоит в центре. - Остальные — «мухи» — бегают по «паутине», стараясь не попасться. - Но мухи могут двигаться ТОЛЬКО по линиям паутины, а паук — прыгать с линии на линию, чтобы коснуться их. - Пойманные «мухи» присоединяются к пауку и тоже помогают ловить. - Игра продолжается, пока не останется 1–2 самых ловких «мухи» — они становятся победителями.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">5. Фризби-тег</div>
-                    <div class="game-description">Один ребёнок — «ловец» с фризби, другие бегают, стараясь не коснуться его броском. Попавший становится ловцом. Игра улучшает реакцию, меткость и активность.</div>
-                </div>
-            </div>
-            <div class="game-category">
-                <h3>Игры организационного периода</h3>
-                <div class="game-item">
-                    <div class="game-title">1. "Слепая карта"</div>
-                    <div class="game-description">Описание: Один участник описывает место (например, город, страну), а остальные должны нарисовать его по его описанию, не задавая вопросов. После этого сравниваются результаты. Цель: Развитие навыков коммуникации и внимательности.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">2. "Сказочный круг"</div>
-                    <div class="game-description">Описание: Участники сидят в кругу и по очереди добавляют по одному предложению к общей истории. Каждый участник должен продолжить рассказ, основываясь на том, что сказал предыдущий. Цель: Развитие креативности и умения слушать других.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">3. "Картографы"</div>
-                    <div class="game-description">Описание: Участникам выдается большой лист бумаги и маркеры. Они должны совместно нарисовать карту своего "идеального города", включая различные элементы (парки, школы, магазины). Затем каждая группа представляет свою карту. Цель: Развитие креативности и совместного мышления.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">4. "Временной капсула"</div>
-                    <div class="game-description">Описание: Участники пишут на бумаге свои мечты или цели на будущее и помещают их в "капсулу" (например, коробку). Капсула будет открыта через определенное время (например, через год), чтобы посмотреть, что сбылось. Цель: Укрепление связи между участниками и мотивация к достижению целей.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">5. "Эмоциональный шифр"</div>
-                    <div class="game-description">Описание: Участники по очереди выбирают карточки с эмоциями (например, радость, грусть, удивление) и должны изобразить эту эмоцию, не произнося ни слова. Остальные участники должны угадать, какая эмоция изображена. Цель: Развить навыки невербального общения и понимания эмоций других.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">6. "Слово за слово"</div>
-                    <div class="game-description">Описание: Участники становятся в круг. Один начинает с произнесения слова (например, "лето"), следующий должен сказать слово, связанное с предыдущим (например, "песок"). Игра продолжается, пока не дойдет до конца круга. Цель: Развитие ассоциативного мышления и внимание.</div>
-                </div>
-                <div class="game-item">
-                    <div class="game-title">7. "Командный плакат"</div>
-                    <div class="game-description">Описание: Каждая группа получает большой лист бумаги и фломастеры. Участники рисуют плакат, который отражает их общие интересы, мечты или цели. Затем каждая группа представляет свой плакат. Цель: Сплочение команды и развитие креативности.</div>
-                </div>
-            </div>
-            <div class="game-category">
-                <h3>Командные игры</h3>
-                <!-- Здесь можно добавить командные игры -->
             </div>
         </div>
     </section>
-
     <!-- Раздел Мероприятия -->
     <section id="events">
         <h2 class="section-title">Сценарий общелагерного мероприятия</h2>
@@ -794,6 +1662,8 @@
                 
                 <p><strong>Цель мероприятия:</strong> Развитие логического мышления, командной работы и креативности через иммерсивное расследование в стиле киберпанк. Дети становятся детективами будущего и за 60–70 минут раскрывают преступление.</p>
                 
+                <p><strong>Общая продолжительность:</strong>60–70 минут  (15–20 мин — допрос, 25–30 мин — поиски, 10–15 мин — разоблачение + финал) </p>
+                
                 <div class="event-section">
                     <h5>Подготовка к мероприятию</h5>
                     <ul class="event-list">
@@ -806,8 +1676,8 @@
                 </div>
                 
                 <div class="event-section">
-                    <h5>Этап 1: Допрос подозреваемых (15-20 минут)</h5>
-                    
+                    <h5>Этап 1: Допрос подозреваемых (15-20 минут) </h5>
+                    <p>Место: Общее пространство лагеря (поляна, актовый зал и т.д.)</p>
                     <div class="event-phase">
                         <h6>Вводная часть (2-3 минуты)</h6>
                         <div class="quote">
@@ -866,11 +1736,11 @@
                 
                 <div class="event-section">
                     <h5>Этап 2: Поиски улик (25-30 минут)</h5>
-                    
+                    <p>Место:Территория лагеря (или здание)</p>
                     <div class="event-phase">
                         <h6>Переход к поиску (2 минуты)</h6>
                         <div class="quote">
-                            «Отличная работа! Теперь у вас есть зацепки. Где-то на территории базы спрятаны улики: обрывки кода, голограммы, логи доступа... Найдите их все — и вы поймёте, кто спрятал Нейро-Ключ и где он сейчас! У вас 25 минут. Вперёд, детективы!»
+                          Ведущий: «Отличная работа! Теперь у вас есть зацепки. Где-то на территории базы спрятаны улики: обрывки кода, голограммы, логи доступа... Найдите их все — и вы поймёте, кто спрятал Нейро-Ключ и где он сейчас! У вас 25 минут. Вперёд, детективы!»
                         </div>
                     </div>
                     
@@ -925,11 +1795,11 @@
                 
                 <div class="event-section">
                     <h5>Этап 3: Вывод и разоблачение (10-15 минут)</h5>
-                    
+                    <p>Место: Общее собрание</p>
                     <div class="event-phase">
                         <h6>Обсуждение (5-7 минут)</h6>
                         <div class="quote">
-                            «Итак, детективы! Кто, по вашему мнению, спрятал Нейро-Ключ? И где он?»
+                            Ведущий: «Итак, детективы! Кто, по вашему мнению, спрятал Нейро-Ключ? И где он?»
                         </div>
                         <p>Каждая команда даёт версию. Ведущий записывает на доске/листе.</p>
                     </div>
@@ -937,7 +1807,7 @@
                     <div class="event-phase">
                         <h6>Разоблачение (3-5 минут)</h6>
                         <div class="quote">
-                            «Вы правы... Это сделал я. Я обнаружил, что внешний хакер пытается проникнуть в систему. Чтобы защитить лагерь, я активировал аварийный протокол и спрятал Нейро-Ключ в серверной. Я не хотел никого обмануть... Я хотел спасти всех.»
+                            Ведущий: «Вы правы... Это сделал я. Я обнаружил, что внешний хакер пытается проникнуть в систему. Чтобы защитить лагерь, я активировал аварийный протокол и спрятал Нейро-Ключ в серверной. Я не хотел никого обмануть... Я хотел спасти всех.»
                         </div>
                         <p>Ведущий вызывает <strong>Хакера Зиро</strong>. Тот снимает капюшон и говорит указанную фразу.</p>
                     </div>
@@ -990,9 +1860,10 @@
             </div>
         </div>
         
+       <section>
         <div id="with-prep" class="event-collection">
             <h3 style="text-align: center;">Мероприятия с подготовкой</h3>
-           <div class="event-card">
+            <div class="event-card">
                 <h4>«Финансовый звёздный час»</h4>
                 
                 <div class="event-meta">
@@ -1001,13 +1872,21 @@
                     <div class="meta-item">Возраст: 8-15 лет</div>
                 </div>
                 
-                <p><strong>Тема мероприятия:</strong> Ближайшее будущее, где лагерь — это секретная база молодых хакеров и исследователей. Внезапно пропадает «Нейро-Ключ» — устройство, способное управлять всеми системами лагеря: светом, дронами, роботами и даже игровыми зонами. Без него лагерь погружается в хаос! Команде детективов предстоит раскрыть загадку за 60 минут.
-</p>
+                <p><strong>Тема мероприятия:</strong> Ближайшее будущее, где лагерь — это секретная база молодых хакеров и исследователей. Внезапно пропадает «Нейро-Ключ» — устройство, способное управлять всеми системами лагеря: светом, дронами, роботами и даже игровыми зонами. Без него лагерь погружается в хаос! Команде детективов предстоит раскрыть загадку за 60 минут.</p>
                 
-                <p><strong>Цель мероприятия:</strong> Научить детей основам финансовой грамотности, планированию бюджета, различать потребности и желания.</p>
+                <p><strong>Цель мероприятия:</strong> Сформировать у детей базовые представления о финансовой грамотности, научить планировать бюджет, различать потребности и желания, а также показать важность сбережений через игровые форматы.</p>
                 
                 <div class="event-section">
                     <h5>Подготовка к мероприятию</h5>
+                    <ul class="event-list">
+                        <li>Распечатать сценарии для ведущих и участников.</li>
+                        <li>Подготовить реквизит: картонные монеты («Финмонетки»), кошельки, копилки, таблички с названиями магазинов.</li>
+                        <li>Создать костюмы для персонажей: Финансовый ангел, исторические персонажи, монетки и купюры.</li>
+                        <li>Подготовить музыкальное сопровождение и звуковые эффекты.</li>
+                        <li>Оформить сцену: вывеска «Финансоград», декорации магазинов.</li>
+                        <li>Распечатать «Финансовые памятки» для зрителей (по желанию).</li>
+                        <li>Провести репетиции с участниками номеров.</li>
+                    </ul>
                     
                     <div class="event-phase">
                         <h6>Персонажи</h6>
@@ -1040,7 +1919,7 @@
                     <h5>Сценарий мероприятия</h5>
                     
                     <div class="event-phase">
-                        <h6>1. Вступление</h6>
+                        <h6>ЭТАП 1: ВВОДНАЯ ЧАСТЬ (10 минут)</h6>
                         <div class="stage-direction">(Звучит весёлая музыка. Занавес открывается. На сцену выходят Артём и Лиза под аплодисменты.)</div>
                         
                         <div class="dialogue-card">
@@ -1072,7 +1951,14 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>2. Номер 1: «История денег» — театрализованная зарисовка</h6>
+                        <h6>ЭТАП 2: ИГРА ПО СТАНЦИЯМ (40 минут)</h6>
+                        <div class="event-phase">
+                        <p>Правила</pЫ>
+                            <li> Команды перемещаются по станциям в любом порядке.</li>
+                            <li> За выполнение задания даётся не только валюта, но и часть подсказки.</li>
+                            <li> На каждой станции можно заработать до 10 «Финмонеток».</li>
+                        </ul>
+                        <h6>Станция 1: «История денег» — театрализованная зарисовка</h6>
                         <div class="stage-direction">(На сцене появляются дети в костюмах: охотник с тушёнкой, крестьянин с зерном, купец с монетами, банкир с картой, школьник с телефоном.)</div>
                         
                         <div class="dialogue-card">
@@ -1120,7 +2006,7 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>3. Номер 2: Песня «Мой карманный бюджет»</h6>
+                        <h6>Станция 3: Номер 2: Песня «Мой карманный бюджет»</h6>
                         <div class="stage-direction">(Звучит музыка — на мотив «Чунга-Чанга» или другой весёлой детской песни. Дети в ярких костюмах с кошельками и копилками.)</div>
                         
                         <div class="song-card">
@@ -1151,7 +2037,7 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>4. Интерактив: «Потребности или желания?»</h6>
+                        <h6>Станция 4: Интерактив: «Потребности или желания?»</h6>
                         
                         <div class="dialogue-card">
                             <div class="speaker">Артём:</div>
@@ -1179,7 +2065,7 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>5. Номер 3: Сценка «Как не потратить всё в первый день»</h6>
+                        <h6>Станция 5: Номер 3: Сценка «Как не потратить всё в первый день»</h6>
                         <div class="stage-direction">(На сцене — Костя и его «Финансовый ангел» — девочка с крыльями из фольги и табличкой «Бюджет»)</div>
                         
                         <div class="dialogue-card">
@@ -1210,7 +2096,7 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>6. Номер 4: Танец «Копилка-диско»</h6>
+                        <h6>Станция 6: Номер 4: Танец «Копилка-диско»</h6>
                         <div class="stage-direction">(Звучит зажигательная музыка. Дети в костюмах: монетки, купюры, копилки, кошельки. Танцуют с большими картонными монетами. В конце все «складывают» деньги в огромную копилку на сцене.)</div>
                         
                         <div class="dialogue-card">
@@ -1220,7 +2106,7 @@
                     </div>
                     
                     <div class="event-phase">
-                        <h6>7. Финал: «Финансовая клятва»</h6>
+                        <h6>Станция 7: Финал: «Финансовая клятва»</h6>
                         <div class="stage-direction">(Все участники концерта выходят на сцену. Ведущие в центре.)</div>
                         
                         <div class="dialogue-card">
@@ -1263,6 +2149,11 @@
                 </div>
                 
                 <div class="event-section">
+                    <h6>ЭТАП 3: ФИНАЛ И НАГРАЖДЕНИЕ (10-15 минут)</h6>
+                    <p>Место: Общее собрание</p>
+                </div>
+                
+                <div class="event-section">
                     <h5>Дополнительно (по желанию)</h5>
                     <ul class="event-list">
                         <li>В конце можно раздать всем зрителям «Финансовые памятки» (листовки с правилами от детей)</li>
@@ -1271,129 +2162,321 @@
                 </div>
                 
                 <div class="checklist">
-                    <h5>Чек-лист для подготовки</h5>
+                    <h5>Чек-лист для вожатого:</h5>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep1">
-                        <label for="prep1">Подготовить костюмы для всех номеров</label>
+                        <label for="prep1">Назначить вожатых на 6 станций</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep2">
-                        <label for="prep2">Создать реквизит (монеты, кошельки, копилки)</label>
+                        <label for="prep2">Распечатать задания, подсказки и маршрутные листы</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep3">
-                        <label for="prep3">Подготовить музыкальное сопровождение</label>
+                        <label for="prep3">Подготовить реквизит: монеты, товары, копилки</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep4">
-                        <label for="prep4">Создать «Финмонетки» для интерактива</label>
+                        <label for="prep4">Оформить станции табличками</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep5">
-                        <label for="prep5">Распечатать финансовые памятки (по желанию)</label>
+                        <label for="prep5">Спрятать «Бюджетный Кристалл»</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="prep6">
-                        <label for="prep6">Подготовить декорации для сцены</label>
+                        <label for="prep6">Разделить детей на команды</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="prep7">
+                        <label for="prep7">Взять секундомер!</label>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </section>
-    
-    <!-- Раздел КТД -->
-    <section id="ktd">
-        <h2 class="section-title">КТД (Коллективно Творческое Дело)</h2>
-        <div class="ktd-grid">
-            <div class="ktd-item">
-                <h3>Экватор смены: Карта памяти</h3>
-                <p><strong>Цель:</strong> Сплочение, развитие креативности, эмоциональное проживание значимого момента смены.</p>
-                <p><strong>Этапы:</strong></p>
-                <ul>
-                    <li>Подготовка и деление на группы</li>
-                    <li>Создание тематических "островов"</li>
-                    <li>Защита и соединение в общую карту</li>
-                </ul>
+ <!-- Раздел КТД -->
+<section id="ktd">
+    <h2 class="section-title">КТД (Коллективно Творческое Дело)</h2>
+    <div class="ktd-grid">
+        
+        <!-- КТД 1: Экватор смены -->
+        <div class="ktd-item">
+            <div class="ktd-image-container">
+                <img src="ктд1.jpg" alt="Карта памяти" class="ktd-image">
             </div>
-            <div class="ktd-item">
-                <h3>Сказка на новый лад</h3>
-                <p><strong>Цель:</strong> Развитие актерских способностей, фантазии, умения работать в команде.</p>
-                <p><strong>Этапы:</strong></p>
-                <ul>
-                    <li>Выбор и переделка сказки</li>
-                    <li>Распределение ролей и подготовка</li>
-                    <li>Репетиция и премьера</li>
-                </ul>
-            </div>
-            <div class="ktd-item">
-                <h3>Экологический Марафон</h3>
-                <p><strong>Цель:</strong> Повышение осведомленности о важности охраны окружающей среды.</p>
-                <p><strong>Этапы:</strong></p>
-                <ul>
-                    <li>Идея и планирование</li>
-                    <li>Сбор материалов</li>
-                    <li>Создание арт-объектов</li>
-                    <li>Уборка территории</li>
-                    <li>Презентация и выставка</li>
-                </ul>
-            </div>
-            <div class="ktd-item">
-                <h3>Летний Театр</h3>
-                <p><strong>Цель:</strong> Создание театральной постановки, развитие актерских навыков и творчества.</p>
-                <p><strong>Этапы:</strong></p>
-                <ul>
-                    <li>Идея и выбор пьесы</li>
-                    <li>Распределение ролей</li>
-                    <li>Сценарий и репетиции</li>
-                    <li>Создание декораций и костюмов</li>
-                    <li>Премьера спектакля</li>
-                </ul>
-            </div>
-            <div class="ktd-item">
-                <h3>Лагерный Картонный Город</h3>
-                <p><strong>Цель:</strong> Создание масштабного картонного города, развитие творческих способностей.</p>
-                <p><strong>Этапы:</strong></p>
-                <ul>
-                    <li>Идея и планирование</li>
-                    <li>Сбор материалов</li>
-                    <li>Работа в группах</li>
-                    <li>Создание и сборка города</li>
-                    <li>Презентация и праздник</li>
-                </ul>
+            <div class="ktd-content">
+                <h3 class="ktd-title"><i class="fas fa-map-marked-alt"></i> Экватор смены: Карта памяти</h3>
+                <p class="ktd-description">Творческое подведение итогов первой половины смены и создание общей "карты памяти" отряда.</p>
+                
+                <div class="ktd-goal">
+                    <strong>Цель:</strong> Сплочение, развитие креативности, эмоциональное проживание значимого момента смены.
+                </div>
+                
+                <div class="ktd-essence">
+                    <h4><i class="fas fa-lightbulb"></i> Суть мероприятия:</h4>
+                    <p>Творческое подведение итогов первой половины смены и создание общей "карты памяти" отряда.</p>
+                </div>
+                
+                <div class="ktd-stages">
+                    <h4><i class="fas fa-tasks"></i> Этапы проведения:</h4>
+                    <ul>
+                        <li><strong>Подготовка (15-20 минут):</strong> Вожатый объявляет: "Наша смена прошла уже половину пути! Давайте создадим карту наших самых ярких моментов!" Отряд делится на 4-5 мини-групп. Каждая группа получает большой лист ватмана, фломастеры, краски, клей, старые журналы, распечатанные общие фото.</li>
+                        <li><strong>Задание для групп:</strong> Изобразить на своём "острове" или "континенте" карты определённую тему:
+                            <ul>
+                                <li>Группа 1: "Остров Первых Впечатлений" (знакомство, первые дни)</li>
+                                <li>Группа 2: "Горы Побед" (спортивные достижения, выигранные конкурсы)</li>
+                                <li>Группа 3: "Океан Смеха" (самые весёлые и курьёзные моменты)</li>
+                                <li>Группа 4: "Лес Тайной Дружбы" (новые друзья, помощь друг другу)</li>
+                                <li>Группа 5: "Пролив Творчества" (песни у костра, поделки, репетиции)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Защита и соединение (30 минут):</strong> Каждая группа представляет свой "остров". После презентации все листы склеиваются в одну большую карту, которая становится украшением отрядного места.</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Раздел Огоньки -->
-    <section id="bonfires">
-        <h2 class="section-title">Огоньки</h2>
-        <div class="bonfire-grid">
-            <div class="bonfire-item">
-                <h3>Секретная миссия</h3>
-                <p><strong>Концепция:</strong> Каждый получает втайне от других небольшую «миссию» - незаметно узнать о ком-то конкретную информацию.</p>
-                <p><strong>Как провести:</strong> Заранее подготовить карточки с заданиями, в течение дня участники общаются, пытаясь выполнить свою миссию, затем по кругу каждый озвучивает свою миссию и то, что удалось узнать.</p>
-                <p><strong>Фишка:</strong> Общение становится целенаправленным и забавным, сразу всплывают интересные факты.</p>
+        <!-- КТД 2: Сказка на новый лад -->
+        <div class="ktd-item">
+            <div class="ktd-image-container">
+                <img src="ктд 2.jpg" alt="Сказка на новый лад" class="ktd-image">
             </div>
-            <div class="bonfire-item">
-                <h3>Эмодзи-портрет</h3>
-                <p><strong>Концепция:</strong> Участники описывают себя только с помощью эмодзи.</p>
-                <p><strong>Как провести:</strong> Раздать каждому по листку, задача - нарисовать «автопортрет» из 5-7 эмодзи, которые характеризуют личность, увлечения или мечты. Все по очереди показывают свои «портреты», а остальные пытаются угадать, что они означают.</p>
-                <p><strong>Фишка:</strong> Язык эмодзи универсален и понятен поколению, который вырос в телефонах. Это креативно и весело.</p>
-            </div>
-            <div class="bonfire-item">
-                <h3>Невидимая связь</h3>
-                <p><strong>Концепция:</strong> Игра, которая визуально показывает, что у всех есть что-то общее.</p>
-                <p><strong>Как провести:</strong> Ведущий задает вопросы, те, кто отвечает «да», берутся за один общий клубок ниток, потом передают его следующим. В итоге получается паутина связей между всеми участниками.</p>
-                <p><strong>Фишка:</strong> Красивый визуальный образ того, как мы все connected даже в мелочах.</p>
-            </div>
-            <div class="bonfire-item">
-                <h3>Плейлист отряда</h3>
-                <p><strong>Концепция:</strong> Создаем общий саундтрек на смену.</p>
-                <p><strong>Как провести:</strong> Каждый участник называет одну песню, которая описывает его характер, поднимает настроение или ассоциируется с летом. Можно включить отрывки этих песен. Записываем все треки в один список - это и будет саундтрек вашего отряда.</p>
-                <p><strong>Фишка:</strong> Музыка объединяет, а по музыкальным вкусам можно многое узнать о человеке.</p>
+            <div class="ktd-content">
+                <h3 class="ktd-title"><i class="fas fa-theater-masks"></i> Сказка на новый лад</h3>
+                <p class="ktd-description">Коллективное сочинение и постановка известной сказки в современном или неожиданном стиле.</p>
+                
+                <div class="ktd-goal">
+                    <strong>Цель:</strong> Развитие актёрских способностей, фантазии, умения работать в команде.
+                </div>
+                
+                <div class="ktd-essence">
+                    <h4><i class="fas fa-lightbulb"></i> Суть мероприятия:</h4>
+                    <p>Коллективное сочинение и постановка известной сказки в современном или неожиданном стиле (детектив, фантастика, комедия, боевик).</p>
+                </div>
+                
+                <div class="ktd-stages">
+                    <h4><i class="fas fa-tasks"></i> Этапы проведения:</h4>
+                    <ul>
+                        <li><strong>Деление на команды, выбор и переделка (5 минут):</strong> Отряд выбирает известную сказку ("Колобок", "Репка", "Красная Шапочка"). Затем команды придумывают, в каком жанре её сыграть. Например, "Колобок в стиле триллера" или "Репка как командный квест".</li>
+                        <li><strong>Распределение ролей и подготовка (20 минут):</strong> Распределяются роли (включая режиссёров, костюмеров, декораторов). Из подручных материалов (простыни, газеты, верёвки, краски) создаются костюмы и реквизит.</li>
+                        <li><strong>Репетиция (15 минут):</strong> Каждая группа репетирует свой эпизод.</li>
+                        <li><strong>Премьера! (15 минут):</strong> Отряд показывает свою версию сказки другим отрядам или вожатым.</li>
+                    </ul>
+                </div>
             </div>
         </div>
+        
+        <!-- КТД 3: Экологический Марафон -->
+        <div class="ktd-item">
+            <div class="ktd-image-container">
+                <img src="ктд3.2.jpg" alt="Экологический Марафон" class="ktd-image">
+            </div>
+            <div class="ktd-content">
+                <h3 class="ktd-title"><i class="fas fa-leaf"></i> Экологический Марафон</h3>
+                <p class="ktd-description">Повышение осведомленности о важности охраны окружающей среды через создание экологических арт-объектов.</p>
+                
+                <div class="ktd-goal">
+                    <strong>Цель:</strong> Повышение осведомленности о важности охраны окружающей среды через создание экологических арт-объектов и проведение мероприятий.
+                </div>
+                
+                <div class="ktd-essence">
+                    <h4><i class="fas fa-lightbulb"></i> Суть мероприятия:</h4>
+                    <p>Совместная деятельность по уборке территории, созданию арт-объектов из вторичных материалов и проведению экологического праздника.</p>
+                </div>
+                
+                <div class="ktd-stages">
+                    <h4><i class="fas fa-tasks"></i> Этапы проведения:</h4>
+                    <ul>
+                        <li><strong>Идея и планирование:</strong> Собираем детей для обсуждения темы экологии и важности защиты природы. Придумываем название марафона и определяем, какие мероприятия будут проходить.</li>
+                        <li><strong>Сбор материалов:</strong> Организуем сбор пластиковых бутылок, старой бумаги, металла и других вторичных материалов.</li>
+                        <li><strong>Создание арт-объектов:</strong> Делим детей на группы, каждая из которых создает свой арт-объект из собранных материалов.</li>
+                        <li><strong>Уборка территории:</strong> Проводим день уборки в лагерной зоне, где дети собирают мусор и очищают природу.</li>
+                        <li><strong>Презентация и выставка:</strong> Организуем выставку созданных арт-объектов. Каждая группа представляет свой проект.</li>
+                        <li><strong>Экологический праздник:</strong> Проводим праздник с играми на экологическую тематику, викторинами и конкурсами.</li>
+                    </ul>
+                </div>
+                
+                <div class="ktd-essence">
+                    <h4><i class="fas fa-check-circle"></i> Результаты мероприятия:</h4>
+                    <ul>
+                        <li>Дети научатся ценить природу и осознавать свою ответственность за её сохранение.</li>
+                        <li>Развивают командный дух и креативное мышление через совместную работу.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+ <section id ="bonfire-section" class="bonfire-section">
+            <h2 class="bonfire-title">1. Огонëк: "Строим Отряд Мечты"</h2>
+            
+            <div class="bonfire-meta">
+                <div class="meta-item">
+                    <h3>Цель:</h3>
+                    <ul>
+                        <li>Выявить причины общего конфликта в отряде</li>
+                        <li>Восстановить доверие и взаимоуважение</li>
+                        <li>Разработать общие правила взаимодействия</li>
+                        <li>Укрепить командный дух</li>
+                    </ul>
+                </div>
+                <div class="meta-item">
+                    <h3>Возраст:</h3>
+                    <p>Подходит для любого возраста (адаптация обязательна!)</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Продолжительность:</h3>
+                    <p>1.5 - 2 часа</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Место проведения:</h3>
+                    <p>Просторное помещение или площадка на улице, где все могут сидеть в кругу и видеть доску</p>
+                </div>
+            </div>
+
+            <h3>Материалы:</h3>
+            <div class="materials-grid">
+                <div class="material-item">Большой лист бумаги (ватман) или доска</div>
+                <div class="material-item">Маркеры разных цветов</div>
+                <div class="material-item">Листы бумаги и ручки для каждого</div>
+                <div class="material-item">Мягкие игрушки или подушки</div>
+                <div class="material-item">Клейкая лента (малярный скотч)</div>
+                <div class="material-item">Разноцветные стикеры</div>
+                <div class="material-item">Таймер</div>
+            </div>
+
+            <h3>Ход огонька:</h3>
+            
+            <div class="procedure-step">
+                <div class="step-title">1. Открытие и Настройка (10 минут)</div>
+                <div class="quote">
+                    "Привет, ребята. Мы собрались здесь, потому что сейчас в нашем отряде не самая простая ситуация. Мы чувствуем напряжение, недопонимание, может быть, обиду. Важно признать, что это есть, и что мы хотим это изменить. Сегодня мы будем работать вместе, чтобы создать тот отряд, о котором мы все мечтаем."
+                </div>
+                <p> Подчеркните, что цель тренинга – не поиск виноватых, а совместное создание позитивной атмосферы</p>
+                <p> Объясните правила: уважение, активное участие, открытость, конфиденциальность, правило поднятой руки</p>
+                <p> <strong>Упражнение "Передай Импульс Добра":</strong> Все стоят в кругу. Первый участник тихо говорит приятное слово соседу и мягко сжимает его руку. Импульс передается по кругу</p>
+            </div>
+        </section>
+
+        <!-- Огонек 2: Секретная миссия -->
+        <section class="bonfire-section">
+            <h2 class="bonfire-title">2. Огонёк «Секретная миссия»</h2>
+            
+            <p>«Секретная миссия» — это интерактивная игра, направленная на то, чтобы участники узнали друг о друге интересные факты, при этом общение становится более целенаправленным и увлекательным.</p>
+
+            <h3>Подготовка к игре:</h3>
+            
+            <div class="procedure-step">
+                <div class="step-title">1. Составление карточек с миссиями:</div>
+                <p>Подготовьте карточки с различными заданиями. Каждая карточка должна содержать уникальную миссию, например:</p>
+                <div class="mission-examples">
+                    <div class="mission-item">«Узнай, кто в детстве боялся темноты»</div>
+                    <div class="mission-item">«Выясни, у кого есть необычная родинка»</div>
+                    <div class="mission-item">«Найди человека, который пробовал жареных кузнечиков»</div>
+                    <div class="mission-item">«Узнай, кто умеет играть на музыкальном инструменте»</div>
+                    <div class="mission-item">«Выясни, кто любит экстремальные виды спорта»</div>
+                    <div class="mission-item">«Найди человека, который побывал в 5 странах за один год»</div>
+                </div>
+            </div>
+
+            <div class="procedure-step">
+                <div class="step-title">2. Определение участников:</div>
+                <p>Соберите группу людей (например, коллег, друзей или участников мероприятия). Идеально, если в группе будет от 6 до 15 человек.</p>
+            </div>
+
+            <div class="procedure-step">
+                <div class="step-title">3. Раздача карточек:</div>
+                <p>В начале мероприятия раздайте каждому участнику одну карточку с заданием. Убедитесь, что никто не видит карточки друг друга.</p>
+            </div>
+
+            <h3>Проведение игры:</h3>
+            
+            <div class="procedure-step">
+                <div class="step-title">1. Общение:</div>
+                <p>В течение дня или определенного времени (например, 1-2 часа) участники должны общаться между собой и пытаться выполнить свои миссии. Они могут задавать вопросы, чтобы узнать нужную информацию, но не должны раскрывать свою настоящую миссию.</p>
+            </div>
+
+            <div class="procedure-step">
+                <div class="step-title">2. Сбор информации:</div>
+                <p>Участники могут подходить друг к другу и задавать вопросы, стараясь не выдавать свою карточку. Можно использовать различные подходы: шутки, легкие разговоры или даже вести беседы на общие темы, чтобы ненавязчиво узнать нужную информацию.</p>
+            </div>
+
+            <div class="procedure-step">
+                <div class="step-title">3. Завершение игры:</div>
+                <p>После окончания времени для выполнения миссий соберите всех участников в круг. По очереди каждый озвучивает свою миссию и делится тем, что удалось узнать. Например: «Моя миссия была узнать, кто в детстве боялся темноты. Я узнал, что это [Имя участника]».</p>
+            </div>
+
+            <h3>В чем фишка:</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <strong>Целенаправленное общение</strong>
+                    <p>Участники общаются с конкретной целью, что делает разговоры более интересными</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Интересные факты</strong>
+                    <p>Игра позволяет людям делиться необычными фактами о себе</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Развлечение и смех</strong>
+                    <p>Забавные ситуации и неожиданные открытия</p>
+                </div>
+                <div class="feature-item">
+                    <strong>Улучшение командной работы</strong>
+                    <p>Развивает навыки общения и взаимодействия</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Огонек 3: Общество паранормальных явлений -->
+        <section class="bonfire-section">
+            <h2 class="bonfire-title">3. Огонек: «Общество паранормальных явлений» (тематический)</h2>
+            
+            <div class="bonfire-meta">
+                <div class="meta-item">
+                    <h3>Цель:</h3>
+                    <p>Снять эмоциональное напряжение, развить фантазию и навык говорения, поддержать дружескую атмосферу</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Возраст:</h3>
+                    <p>Подходит для любого возраста (Важно: страх должен быть весёлым и контролируемым)</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Продолжительность:</h3>
+                    <p>1,5 часа</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Место проведения:</h3>
+                    <p>Помещение или улица. Оставить ночник/костер или максимально приглушить свет</p>
+                </div>
+            </div>
+
+            <h3>Реквизит:</h3>
+            <div class="materials-grid">
+                <div class="material-item">Хна/безопасные для кожи краски</div>
+                <div class="material-item">Ручка</div>
+                <div class="material-item">Тетрадь</div>
+                <div class="material-item">Черный плащ для ведущего</div>
+            </div>
+
+            <h3>Ход огонька:</h3>
+            
+            <div class="procedure-step">
+                <p>  Дети садятся полукругом в сторону вожатых</p>
+                <div class="quote">
+                    "Рады приветствовать новых членов общества паранормальных явлений! Все мы сегодня собрались для того, чтобы обсудить необычные случаи и явления, и внести их в нашу книгу. Но для начала все вы станете полноправными участниками нашего коллектива!"
+                </div>
+                <p>  Детям рисуют звезду на ладони</p>
+                <p>  Вожатые: «Теперь мы можем выслушать ваши истории.»</p>
+                <p>  Дети поочереди рассказывают подготовленные или выдуманные легенды</p>
+                <p>  После каждой истории проходит голосование, вписать ли историю в книгу или нет</p>
+                <p>  Если истории не хватает фактов и деталей, любой другой участник может дополнить легенду</p>
+                <p>  Вожатый: «Вот мы и пополнили нашу книгу!»</p>
+                <p>  Вожатые и дети обсуждают, как можно объяснить необъяснимые явления и приходят к выводу, что во время столкновения с чем-то паранормальным, всегда можно положиться на члена общества</p>
+            </div>
+        </section>
 
     <script>
         // Плавная прокрутка к разделам
