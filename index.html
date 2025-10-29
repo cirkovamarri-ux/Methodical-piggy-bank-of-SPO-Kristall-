@@ -36,17 +36,21 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
-  body {
-    background-image: url('фон2.jpg');
+   body {
+    background-image: url('фон.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
     color: #333;
     line-height: 1.6;
-    padding-top: 80px; /* Отступ для фиксированной шапки */
+    padding-top: 80px;
+    
+    /* Оптимизация для мобильных */
+    background-size: 100% auto; /* Альтернативный вариант для мобильных */
+    min-height: 100vh; /* Гарантирует минимальную высоту */
 }
-       
+    
     /* Фиксированная шапка */
     header {
         position: fixed;
@@ -880,10 +884,11 @@
     
     @media (max-width: 768px) {
         /* Уменьшаем шрифты для мобильных */
-        body {
-            font-size: 14px;
-            padding-top: 70px;
-        }
+       body {
+        background-attachment: scroll; /* Убираем fixed на мобильных */
+        background-size: cover; /* Или используем contain для полного показа */
+        background-position: top center; /* Лучшее выравнивание для мобильных */
+    }
         
         .section-title {
             font-size: 24px;
@@ -1013,10 +1018,10 @@
         }
 
     @media (max-width: 480px) {
-        body {
-            font-size: 13px;
-            padding-top: 65px;
-        }
+         body {
+        /* Дополнительные правки для маленьких экранов */
+        padding-top: 60px; /* Уменьшаем отступ для мобильных */
+    }
         
         .section-title {
             font-size: 22px;
