@@ -902,6 +902,179 @@ body {
 .bonfire-image:hover {
     transform: scale(1.05);
 }
+   .music-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-title {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .music-category {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #3498db;
+        }
+
+        .music-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .music-category h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .song-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .song-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e9ecef;
+        }
+
+        .song-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .song-item.playing {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+        }
+
+        .song-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .play-icon {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        .player-controls {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .current-song {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #2c5282;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .control-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+
+        .control-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-container {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress {
+            height: 100%;
+            background: #3498db;
+            width: 0%;
+            transition: width 0.1s;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .volume-slider {
+            width: 100px;
+        }
+
     
     /* Адаптивность для мобильных устройств */
 
@@ -951,6 +1124,12 @@ body {
         /* Отображаем кнопки навигации по играм на мобильных устройствах */
         .games-navigation {
             display: flex;
+        }
+
+        
+        .music-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
         }
         
         /* Уменьшаем шрифты для мобильных */
@@ -1201,6 +1380,7 @@ body {
                     <li><a href="#events">Мероприятия</a></li>
                     <li><a href="#ktd">КТД</a></li>
                     <li><a href="#bonfire-section">Огоньки</a></li>
+                    <li><a href="#music">Музыка</a></li>
                 </ul>
             </nav>
         </div>
@@ -2474,7 +2654,284 @@ body {
         </div>
     </div>
 </section>
+ <!-- Блок с музыкой -->
+    <h2 class="music-title">Музыкальная коллекция</h2>
+         <section id="music" class="music-section">
+      
+        <div class="music-grid">
+            <!-- Категория 1 -->
+            <div class="music-category">
+                <h3> Отрядный подъём/будильник</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="C:\Users\masha\OneDrive\Desktop\Методическая копилка\MUSIC\Подъем\01 - Отрядный подъём _ будильн - 1_Доброе утро [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Доброе утро"
+                    </li>
+                    <li class="song-item" data-song="C:\Users\masha\OneDrive\Desktop\Методическая копилка\MUSIC\Подъем\02 - Отрядный подъём _ буди - 1_Уходи, негатив! [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Уходи, негатив!"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Подъем/03 - Отрядный подъём _ б - 1_Вставай, с первым [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Вставай, с первыми лучами, вставай!"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Подъем/04 - Отрядный подъём _ бу - 1_Оранжевое солнце [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Оранжевое солнце"
+                    </li>
+                </ul>
+            </div>
 
+            <!-- Категория 2 -->
+            <div class="music-category">
+                <h3>Зарядка и вожатские танцы</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Зарядка/05 - Зарядка - 2_Детская энергичная [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Детская энергичная"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/06 - Зарядка - 2_Солнышко [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Солнышко"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/07 - Зарядка - 2_Мотивирующая [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Мотивирующая"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/08 - Зарядка - 2_Фоновая [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Фоновая"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/09 - Зарядка - 2_Гимнастика [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Гимнастика"
+                    </li>
+                     <li class="song-item" data-song="MUSIC/Зарядка/10 - Вожатские танцы - 2_Ля мордидита [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Ля мордидита"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/11 - Вожатские танцы - 2_Капельки [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Капельки"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/12 - Вожатские танцы - 2_Руки над головами [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Руки над головами"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/13 - Вожатские танцы - 2_А облака летят, как лебе [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "А облака летят, как лебеди"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Зарядка/14 - Вожатские танцы - 2_Косички-вертолёт [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Косички-вертолёт"
+                    </li>
+                </ul>
+            </div>
+
+           <!-- Категория 3 -->
+            <div class="music-category">
+                <h3> Игры с залом</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Игры/15 - Игры с залом - 3_Бицепсы-трицепсы [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Бицепсы-трицепсы"
+                    </li>
+                    <li class="song-item" data-song="C:\Users\masha\OneDrive\Desktop\Методическая копилка\MUSIC\Игры\16 - Игры с залом - 3_Цыплёнок Пи [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Цыплёнок Пи"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Игры/17 - Игры с залом - 3_Вверх-вниз [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Вверх-вниз"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Игры/18 - Игры с залом - 3_Я ракета, я я ракета [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Я ракета, я я ракета"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Игры/19 - Игры с залом - 3_Я милый поросёнок [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Я милый поросёнок"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Категория 4 -->
+            <div class="music-category">
+                <h3>Для выступлений </h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Выступления/20 - Для выступлений - 4_Гори, гори ясно! [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Гори, гори ясно"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/21 - Для выступлений - 4_Ты не один [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Ты не один"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/22 - Для выступлений - 4_Сериал [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Сериал"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/23 - Для выступлений - 4_Будь первым! [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Будь первым!"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/24 - Для выступлений - 4_Поезда [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Поезда"
+                    </li>
+                     <li class="song-item" data-song="MUSIC/Выступления/25 - Для выступлений - 4_Мы с тобой [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Мы с тобой"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/26 - Для выступлений - 4_На златом крыльце [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "На златом крыльце"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Выступления/27 - Для выступлений - 4_ТуЛуЛа [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "ТуЛуЛа"
+                    </li>
+                </ul>
+            </div>
+
+              <!-- Категория 5 -->
+            <div class="music-category">
+                <h3> Фоновая для сценки или видео</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Фоновая/28 - Фоновая для сценки или ви - 5_Уютный Отель [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Уютный Отель"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Фоновая/29 - Фоновая для сценки или - 5_Вечерний Релакс [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Вечерний Релакс"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Фоновая/30 - Фоновая для сценки или видео - 5_Спокойная [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Спокойная"
+                    </li>
+                    <li class="song-item" data-song= "MUSIC/Фоновая/31 - Фоновая для сценки или видео - 5_Грозная [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Грозная"
+                    </li>
+                       <li class="song-item" data-song="MUSIC/Фоновая/32 - Фоновая для сценки или видео - 5_Грустная [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Грустная"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Фоновая/33 - Фоновая для сценки или видео - 5_Ресторан [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Ресторан"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Фоновая/34 - Фоновая для сценки и - 5_Презентация или ре [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Презентация или реклама"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Фоновая/35 - Фоновая для сценки или видео - 5_Веселая [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Веселая"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Категория 6 -->
+            <div class="music-category">
+                <h3>Песни у костра</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Костер/36 - Песни у костра - 6_Перевал [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Перевал"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Костер/37 - Песни у костра - 6_Все расстоянья [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Все расстоянья"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Костер/38 - Песни у костра - 6_Пожары и дожди [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Пожары и дожди"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Костер/39 - Песни у костра - 6_Алые Паруса [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Алые Паруса"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Костер/40 - Песни у костра - 6_Ты, да я, да мы с тобой [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Ты, да я, да мы с тобой"
+                    </li>
+                </ul>
+            </div>
+
+              <!-- Категория 7 -->
+            <div class="music-category">
+                <h3>  Для огоньков</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Огоньки/41 - Для огоньков - 7_Звуки дождя [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Звуки дождя"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Огоньки/42 - Для огоньков - 7_Прибой [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Прибой"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Огоньки/43 - Для огоньков - 7_Закат [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Закат"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Огоньки/44 - Для огоньков - 7_Зима [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Зима"
+                    </li>
+                     <li class="song-item" data-song="MUSIC/Огоньки/45 - Для огоньков - 7_Костёр [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Костер"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Огоньки/46 - Для огоньков - 7_Осень [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Осень"
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Категория 8 -->
+            <div class="music-category">
+                <h3>Для дискотеки </h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/Дискотеки/47 - Для дискотеки - 8_Лето снаружи , лето внутри [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Лето снаружи , лето внутри"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/48 - Для дискотеки - 8_Восточная сказка [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Восточная сказка"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/49 - Для дискотеки - 8_Танцы [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Танцы"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/50 - Для дискотеки - 8_Знаешь ли ты [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Знаешь ли ты"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/51 - Для дискотеки - 8_Асфальт [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Асфальт"
+                    </li>
+                     <li class="song-item" data-song="MUSIC/Дискотеки/52 - Для дискотеки - 8_Supersonic [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Supersonic"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/53 - Для дискотеки - 8_Гагарин [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Гагарин"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/54 - Для дискотеки - 8_Само Собой [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Само Собой"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/55 - Для дискотеки - 8_Роман [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Роман"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/Дискотеки/56 - Для дискотеки - 8_Самая самая [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Самая самая"
+                    </li>
+                </ul>
+            </div>
+
+                <!-- Категория 9 -->
+            <div class="music-category">
+                <h3>Песни СПО «Кристалл»</h3>
+                <ul class="song-list">
+                    <li class="song-item" data-song="MUSIC/СПО Кристалл/57 - Песни СПО 'Кристалл' - 9_Мой отряд [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Мой отряд"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/СПО Кристалл/58 - Песни СПО 'Кристалл' - 9_Это СПО 'Кристалл' [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Это СПО "Кристалл""
+                    </li>
+                    <li class="song-item" data-song="MUSIC/СПО Кристалл/59 - Песни СПО 'Кристалл' - 9_Команда [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Команда"
+                    </li>
+                    <li class="song-item" data-song="MUSIC/СПО Кристалл/61 - Песни СПО Кристалл - 9_Ждет целина [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Ждет целина"
+                    </li>
+                     <li class="song-item" data-song="MUSIC/СПО Кристалл/62 - Песни СПО 'Кристалл' - 9_Мой путь [audiovk.com].mp3">
+                        <span class="play-icon">▶</span> "Мой путь"
+                    </li>
+                </ul>
+            </div>
+
+            
+        </div>
+        
+        <!-- Панель управления плеером -->
+        <div class="player-controls">
+            <div class="current-song" id="current-song">Выберите песню для воспроизведения</div>
+            <div class="controls">
+                <button class="control-btn" id="prev-btn" disabled>⏮</button>
+                <button class="control-btn" id="play-btn">▶</button>
+                <button class="control-btn" id="pause-btn" disabled>⏸</button>
+                <button class="control-btn" id="next-btn" disabled>⏭</button>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="time-display">
+                    <span id="current-time">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            <div class="volume-control">
+                <span>🔊</span>
+                <input type="range" class="volume-slider" id="volume" min="0" max="1" step="0.1" value="0.7">
+            </div>
+        </div>
+    </section>
 <script>
         // Плавная прокрутка к разделам
         function scrollToSection(sectionId) {
@@ -2512,6 +2969,201 @@ body {
                 }
             });
         });
+
+     // Элементы управления
+const currentSongElement = document.getElementById('current-song');
+const playBtn = document.getElementById('play-btn');
+const pauseBtn = document.getElementById('pause-btn');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const progress = document.getElementById('progress');
+const currentTimeElement = document.getElementById('current-time');
+const durationElement = document.getElementById('duration');
+
+// Список песен и текущее состояние
+const songs = document.querySelectorAll('.song-item');
+let currentSongIndex = 0;
+let isPlaying = false;
+let audio = new Audio();
+
+// Форматирование времени
+function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Обновление прогресса
+function updateProgress() {
+    if (audio.duration && !isNaN(audio.duration)) {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progress.style.width = `${progressPercent}%`;
+        currentTimeElement.textContent = formatTime(audio.currentTime);
+        durationElement.textContent = formatTime(audio.duration);
+    }
+}
+
+// Получение реального пути к песне
+function getSongPath(songElement) {
+    const dataSong = songElement.getAttribute('data-song');
+    
+    // Если путь указан и не пустой
+    if (dataSong && dataSong.trim() !== '') {
+        return dataSong;
+    }
+
+}
+
+// Воспроизведение песни
+function playSong(index) {
+    // Останавливаем текущее воспроизведение
+    if (audio && !audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;
+    }
+    
+    // Сброс предыдущего состояния
+    songs.forEach(song => song.classList.remove('playing'));
+    
+    // Установка новой песни
+    currentSongIndex = index;
+    const song = songs[currentSongIndex];
+    song.classList.add('playing');
+    
+    // Обновление интерфейса
+    currentSongElement.textContent = `Сейчас играет: ${song.textContent.trim()}`;
+    
+    // Получаем реальный путь к аудиофайлу
+    const songPath = getSongPath(song);
+    
+    // Устанавливаем источник аудио
+    audio = new Audio();
+    audio.src = songPath;
+    
+    // Обновление кнопок
+    playBtn.disabled = true;
+    pauseBtn.disabled = false;
+    prevBtn.disabled = currentSongIndex === 0;
+    nextBtn.disabled = currentSongIndex === songs.length - 1;
+    
+    // Воспроизведение
+    audio.play().then(() => {
+        isPlaying = true;
+        console.log('Воспроизводится:', song.textContent, 'Путь:', songPath);
+        
+        // Обновление прогресса
+        audio.addEventListener('timeupdate', updateProgress);
+        
+    }).catch(error => {
+        console.error('Ошибка воспроизведения:', error);
+        currentSongElement.textContent = 'Ошибка загрузки песни';
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+    });
+    
+    // Завершение песни
+    audio.addEventListener('ended', () => {
+        isPlaying = false;
+        song.classList.remove('playing');
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+        
+        if (currentSongIndex < songs.length - 1) {
+            // Автопереход к следующей песне
+            playSong(currentSongIndex + 1);
+        } else {
+            currentSongElement.textContent = 'Воспроизведение завершено';
+        }
+    });
+    
+    // Ошибка загрузки
+    audio.addEventListener('error', (e) => {
+        console.error('Ошибка загрузки аудио:', e);
+        currentSongElement.textContent = 'Ошибка загрузки аудиофайла';
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+        isPlaying = false;
+    });
+}
+
+// Обработчики событий для песен
+songs.forEach((song, index) => {
+    song.addEventListener('click', () => {
+        playSong(index);
+    });
+    
+    // Добавляем стиль курсора
+    song.style.cursor = 'pointer';
+});
+
+// Обработчики для кнопок управления
+playBtn.addEventListener('click', () => {
+    if (!isPlaying) {
+        if (audio.src) {
+            // Если песня уже загружена, продолжаем воспроизведение
+            audio.play();
+            isPlaying = true;
+            playBtn.disabled = true;
+            pauseBtn.disabled = false;
+        } else {
+            // Иначе начинаем с текущей песни
+            playSong(currentSongIndex);
+        }
+    }
+});
+
+pauseBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        playBtn.disabled = false;
+        pauseBtn.disabled = true;
+        currentSongElement.textContent = `На паузе: ${songs[currentSongIndex].textContent.trim()}`;
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentSongIndex > 0) {
+        playSong(currentSongIndex - 1);
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (currentSongIndex < songs.length - 1) {
+        playSong(currentSongIndex + 1);
+    }
+});
+
+// Обработчик для прогресс-бара
+document.getElementById('progress-bar').addEventListener('click', (e) => {
+    if (audio.duration && !isNaN(audio.duration)) {
+        const progressBar = e.currentTarget;
+        const clickPosition = e.offsetX;
+        const progressBarWidth = progressBar.clientWidth;
+        const clickTime = (clickPosition / progressBarWidth) * audio.duration;
+        
+        audio.currentTime = clickTime;
+        updateProgress();
+    }
+});
+
+// Управление громкостью
+document.getElementById('volume').addEventListener('input', (e) => {
+    if (audio) {
+        audio.volume = e.target.value;
+    }
+});
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Плеер загружен. Доступно песен:', songs.length);
+    
+    // Активируем первую песню для демонстрации
+    if (songs.length > 0) {
+        currentSongElement.textContent = 'Выберите песню для воспроизведения';
+    }
+});
     </script>
 </body>
 </html>
